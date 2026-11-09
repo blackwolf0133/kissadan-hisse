@@ -1,0 +1,50 @@
+{
+ "id": "003",
+ "slug": "karanlikta_fil",
+ "title": "Karanlıktaki Fil",
+ "seed": 333,
+ "characters": {
+  "FIL": "a big friendly grey elephant",
+  "KOYLU": "a curious villager in a simple tunic and cap"
+ },
+ "scenes": [
+  {
+   "text": "Altı kişi aynı şeye dokundu. Altısı da bambaşka bir şey anlattı.",
+   "prompt": "six curious villagers in simple tunics reaching out their hands in a very dark barn toward a huge shadowy shape, a thin beam of light",
+   "yer": "Mevlânâ · Mesnevi"
+  },
+  {
+   "text": "Uzak diyardan bir fil getirmişler ve karanlık bir ahıra koymuşlar. Kasabada daha önce kimse fil görmemiş.",
+   "prompt": "travelers leading {FIL} into a wooden barn at dusk while astonished townspeople watch from a distance"
+  },
+  {
+   "text": "Karanlıkta biri hortuma dokunmuş: Bu kesinlikle bir su borusu, demiş.",
+   "prompt": "in a dark barn a {KOYLU} touching the trunk of {FIL}, thinking it is a water pipe, only his hands and the trunk lit by a faint light"
+  },
+  {
+   "text": "Biri kulağını tutmuş: Hayır, bu bir yelpaze! Bir başkası ayağına sarılmış: Bu bir sütun!",
+   "prompt": "in a dark barn one villager holding the big ear of {FIL} like a fan and another hugging its leg like a pillar, dim light"
+  },
+  {
+   "text": "Sırtını yoklayan, fil bir taht gibidir diye yemin etmiş.",
+   "prompt": "in a dark barn a villager standing on a stool touching the wide back of {FIL}, imagining a throne, dim light"
+  },
+  {
+   "text": "Kavga büyümüş, sesler yükselmiş. Oysa birinin elinde bir mum olsaydı, tartışma hemen bitecekmiş.",
+   "prompt": "villagers arguing angrily in a dark barn, then a single candle flame appearing in someone's hand revealing {FIL}"
+  },
+  {
+   "text": "Mevlânâ der ki: Herkes gerçeğin sadece dokunduğu kadarını bilir. Mumu yakmadan kimseyi yargılama.",
+   "prompt": "{FIL} fully lit by warm candlelight in a barn, surprised villagers looking up at it together, peaceful mood"
+  }
+ ],
+ "hisse": "Herkes gerçeğin dokunduğu kadarını bilir. Mumu yakmadan yargılama.",
+ "caption": "Sen file nereden dokundun? 🐘\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#mevlana",
+  "#mesnevi",
+  "#kıssadanhisse",
+  "#hikaye",
+  "#kıssadanhissetr"
+ ]
+}

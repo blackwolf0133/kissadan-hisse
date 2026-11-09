@@ -1,0 +1,87 @@
+# Paylaşım yapmadan deneme videosu: çizimleri hazır (cizim-<id>) bir dosyayı istenen Gemini sesiyle yeniden üretir.
+name: Önizleme
+
+on:
+  workflow_dispatch:
+    inputs:
+      bolum:
+        description: "Çizimleri hazır bölüm (ör. 001)"
+        default: "001"
+      sesler:
+        description: "Gemini sesleri (JSON liste)"
+        default: '["Sadaltager"]'
+      hazir:
+        description: "Sonucu hazir-<id> olarak kaydet (paylaşılacak video bu olur)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  hazirla:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.t.outputs.tag }}
+    steps:
+      - id: t
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="onizleme-${{ inputs.bolum }}-$(date +%m%d%H%M)"
+          gh release create "$tag" --prerelease --title "Önizleme ${{ inputs.bolum }}" --notes "Deneme, paylaşılmadı." --repo "${{ github.repository }}"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+  uret:
+    needs: hazirla
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        ses: ${{ fromJSON(inputs.sesler) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Kurulum
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+          pip install -r requirements.txt
+          pip install faster-whisper || true
+          pip install transformers torch --extra-index-url https://download.pytorch.org/whl/cpu || true
+      - name: Önbellek (modeller)
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/huggingface
+            models
+          key: kv-modeller-v1
+      - name: Görselleri al
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download "cizim-${{ inputs.bolum }}" -D img --repo "${{ github.repository }}" && ls img
+      - name: Videoyu üret
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_VOICE: ${{ matrix.ses }}
+          GEMINI_DENEME: "1"
+          PYTHONUNBUFFERED: "1"
+        run: |
+          ep=$(ls episodes/${{ inputs.bolum }}_*.json)
+          mkdir -p out && python -m engine.video "$ep" img "out/${{ inputs.bolum }}_${{ matrix.ses }}.mp4"
+      - name: Sürüme ekle
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ needs.hazirla.outputs.tag }}" out/*.mp4 --repo "${{ github.repository }}"
+      - name: Hazır sürümünü değiştir
+        if: ${{ inputs.hazir }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ID="${{ inputs.bolum }}"
+          cp "out/${ID}_${{ matrix.ses }}.mp4" "out/${ID}.mp4"
+          python daily.py caption "$ID" > notes.txt
+          gh release delete "hazir-${ID}" --cleanup-tag -y --repo "${{ github.repository }}" 2>/dev/null || true
+          gh release create "hazir-${ID}" "out/${ID}.mp4" --prerelease --title "Hazır ${ID}" --notes-file notes.txt --repo "${{ github.repository }}"

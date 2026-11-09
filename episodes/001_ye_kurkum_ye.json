@@ -1,0 +1,49 @@
+{
+ "id": "001",
+ "slug": "ye_kurkum_ye",
+ "title": "Ye Kürküm Ye",
+ "seed": 111,
+ "characters": {
+  "HOCA": "an old Turkish man with a round friendly face, a long white beard and a large white turban"
+ },
+ "scenes": [
+  {
+   "text": "Aynı adam, aynı düğün. Ama ikinci gelişinde onu baş köşeye oturttular.",
+   "prompt": "{HOCA} wearing a rich fur coat being seated at the head of a long festive village wedding table by smiling hosts",
+   "yer": "Nasreddin Hoca"
+  },
+  {
+   "text": "Nasreddin Hoca bir düğüne, tarladan geldiği gibi, eski kıyafetleriyle gitmiş.",
+   "prompt": "{HOCA} in a dusty patched brown robe arriving at the open door of a lively village wedding house in the evening, lanterns"
+  },
+  {
+   "text": "Kimse yer göstermemiş. Kimse bir kâse çorba bile uzatmamış.",
+   "prompt": "{HOCA} in a patched brown robe sitting alone at the far end of a crowded wedding hall, guests turning their backs to him, an empty bowl in front of him"
+  },
+  {
+   "text": "Hoca sessizce evine dönmüş. Sandıktan en gösterişli kürkünü çıkarıp giymiş.",
+   "prompt": "{HOCA} at home putting on a luxurious brown fur coat taken from an old wooden chest, small cozy room"
+  },
+  {
+   "text": "Aynı düğüne geri geldiğinde, herkes ayağa kalkmış. En güzel yemekler önüne konmuş.",
+   "prompt": "guests standing up and bowing as {HOCA} in a luxurious fur coat enters the wedding hall, servants bringing big plates of food"
+  },
+  {
+   "text": "Hoca kürkünün yenini çorbaya batırmış: Ye kürküm ye! Bu sofraya davet edilen sensin.",
+   "prompt": "{HOCA} in a fur coat dipping the long sleeve of his coat into a bowl of soup while surprised guests stare at him"
+  },
+  {
+   "text": "İnsanlar sana değil de üstündekine yer açıyorsa, o sofra senin sofran değildir.",
+   "prompt": "an empty luxurious fur coat sitting on a chair at the head of a feast table, warm lantern light, empty room"
+  }
+ ],
+ "hisse": "İnsanlar sana değil, üstündekine yer açıyorsa o sofra senin değildir.",
+ "caption": "Kürk mü önemli, insan mı? 🧥\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#nasreddinhoca",
+  "#yekürkümye",
+  "#kıssadanhisse",
+  "#hikaye",
+  "#kıssadanhissetr"
+ ]
+}

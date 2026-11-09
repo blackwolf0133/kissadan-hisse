@@ -1,0 +1,71 @@
+# Hazır olan sıradaki dosyayı Instagram'a Reel olarak paylaşır (her akşam ~21:30; yedek: Claude alarmı 21:26).
+name: Günlük paylaşım
+
+on:
+  schedule:
+    - cron: "22 18 * * *"    # 21:22 Türkiye (paylaşım ~21:30; yedek: Claude alarmı 21:26)
+  workflow_dispatch:
+    inputs:
+      zorla:
+        description: "Bugün paylaşım yapılmış olsa da paylaş"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: gunluk-paylasim
+  cancel-in-progress: false
+
+jobs:
+  paylas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Sıradaki hazır bölüm
+        id: sec
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FORCE: ${{ inputs.zorla && '1' || '' }}
+        run: |
+          export READY="$(gh release list --repo "${{ github.repository }}" --limit 100 --json tagName --jq '.[].tagName' | grep '^hazir-' | sed 's/^hazir-//' | tr '\n' ' ')"
+          echo "Hazır olanlar: $READY"
+          python daily.py pick-publish
+      - name: Videoyu indir
+        if: steps.sec.outputs.id != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download "hazir-${{ steps.sec.outputs.id }}" -D out --repo "${{ github.repository }}"
+      - name: Instagram'a paylaş
+        if: steps.sec.outputs.id != ''
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_MODE: ${{ vars.IG_MODE }}
+        run: |
+          ID="${{ steps.sec.outputs.id }}"
+          python daily.py publish "$ID" --video-path "out/${ID}.mp4" \
+            --video-url "https://github.com/${{ github.repository }}/releases/download/hazir-${ID}/${ID}.mp4"
+      - name: Kaydı yaz
+        if: steps.sec.outputs.id != ''
+        run: |
+          git config user.name "kissadan-hisse-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add state/posted.json
+          git commit -m "Paylaşıldı: bölüm ${{ steps.sec.outputs.id }}" || echo "değişiklik yok"
+          git pull --rebase -q && git push
+      - name: Sürümü arşivle ve yenisini hazırlat
+        if: steps.sec.outputs.id != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ID="${{ steps.sec.outputs.id }}"
+          gh release delete "hazir-${ID}" --cleanup-tag -y --repo "${{ github.repository }}" || true
+          gh workflow run hazirla.yml --repo "${{ github.repository }}"

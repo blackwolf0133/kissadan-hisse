@@ -1,0 +1,159 @@
+# Sıradaki dosyayı ÖNCEDEN üretir: sahneler aynı anda ayrı makinelerde çizilir (FLUX.2-klein-4B, Gemini ile kontrol),
+# sonra Gemini sesi + gerilim müziğiyle birleştirilip "hazir-<id>" sürümüne konur. Önde 3 hazır bölüm olana kadar kendini tekrar başlatır.
+name: Hazırla
+
+on:
+  schedule:
+    - cron: "17 9 * * *"     # 12:17 Türkiye (yedek; paylaşım sonrası da otomatik başlar)
+  workflow_dispatch:
+    inputs:
+      bolum:
+        description: "Belirli bölümleri yeniden üret (ör. 003 004). Boşsa sıradaki."
+        default: ""
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: hazirla
+  cancel-in-progress: false
+
+jobs:
+  sec:
+    runs-on: ubuntu-latest
+    outputs:
+      id: ${{ steps.sec.outputs.id }}
+      path: ${{ steps.sec.outputs.path }}
+      rest: ${{ steps.sec.outputs.rest }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sıradaki bölümü seç
+        id: sec
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FORCE_ID: ${{ inputs.bolum }}
+        run: |
+          python daily.py status
+          export READY="$(gh release list --repo "${{ github.repository }}" --limit 100 --json tagName --jq '.[].tagName' | grep '^hazir-' | sed 's/^hazir-//' | tr '\n' ' ')"
+          echo "Hazır olanlar: $READY"
+          python daily.py pick-prepare
+      - name: Çizim sürümünü aç
+        if: steps.sec.outputs.id != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete "cizim-${{ steps.sec.outputs.id }}" --cleanup-tag -y --repo "${{ github.repository }}" 2>/dev/null || true
+          gh release create "cizim-${{ steps.sec.outputs.id }}" --prerelease --title "Çizim ${{ steps.sec.outputs.id }}" --notes "Ara dosyalar" --repo "${{ github.repository }}"
+
+  ciz:
+    needs: sec
+    if: needs.sec.outputs.id != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        sahne: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Önbellek (sd.cpp)
+        id: sdcache
+        uses: actions/cache@v4
+        with:
+          path: ~/sdbin
+          key: sdcpp-cpu-v1
+      - name: stable-diffusion.cpp derle
+        if: steps.sdcache.outputs.cache-hit != 'true'
+        run: |
+          git clone --recursive --depth 1 https://github.com/leejet/stable-diffusion.cpp /tmp/sd
+          cmake -S /tmp/sd -B /tmp/sd/build -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=OFF -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON
+          cmake --build /tmp/sd/build --config Release -j4
+          mkdir -p ~/sdbin && cp /tmp/sd/build/bin/* ~/sdbin/
+      - name: Önbellek (çizim modeli)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-klein4b-v1
+      - run: pip install huggingface_hub
+      - name: Çiz
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PYTHONUNBUFFERED: "1"
+        run: python -m engine.scenes "${{ needs.sec.outputs.path }}" ${{ matrix.sahne }} ~/sdbin/sd-cli out
+      - name: Sürüme ekle
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ls out/*.png >/dev/null 2>&1 || exit 0
+          gh release upload "cizim-${{ needs.sec.outputs.id }}" out/*.png --clobber --repo "${{ github.repository }}"
+
+  birlestir:
+    needs: [sec, ciz]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Kurulum
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg espeak-ng
+          pip install -r requirements.txt
+          pip install faster-whisper || echo "::warning::faster-whisper kurulamadı, okunuş kontrolü atlanacak"
+          pip install transformers torch --extra-index-url https://download.pytorch.org/whl/cpu || echo "::warning::derinlik modeli kurulamadı"
+          pip install piper-tts==1.8.0 || true
+      - name: Önbellek (modeller)
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/huggingface
+            models
+          key: kv-modeller-v1
+      - name: Yedek ses modeli
+        run: |
+          mkdir -p models
+          if [ ! -f models/tr_TR-fahrettin-medium.onnx ]; then
+            curl -sSL https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-tr_TR-fahrettin-medium.tar.bz2 | tar xj -C /tmp
+            cp /tmp/vits-piper-tr_TR-fahrettin-medium/tr_TR-fahrettin-medium.onnx* models/
+          fi
+      - name: Sahneleri al
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download "cizim-${{ needs.sec.outputs.id }}" -D img --repo "${{ github.repository }}" && ls img
+      - name: Videoyu birleştir
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          export GEMINI_VOICE="$(cat assets/voice/gemini_ses 2>/dev/null || echo Sadaltager)"
+          export GEMINI_TEMPO="$(cat assets/voice/tempo 2>/dev/null || echo 1.0)"
+          ID="${{ needs.sec.outputs.id }}"
+          n=$(python -c "import json;print(len(json.load(open('${{ needs.sec.outputs.path }}'))['scenes']))")
+          for i in $(seq 1 $n); do [ -f img/sahne$i.png ] || { echo "::error::sahne$i eksik"; exit 1; }; done
+          mkdir -p out && python -m engine.video "${{ needs.sec.outputs.path }}" img "out/${ID}.mp4"
+      - name: Hazır sürümüne koy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ID="${{ needs.sec.outputs.id }}"
+          python daily.py caption "$ID" > notes.txt
+          gh release delete "hazir-${ID}" --cleanup-tag -y --repo "${{ github.repository }}" 2>/dev/null || true
+          gh release create "hazir-${ID}" "out/${ID}.mp4" --prerelease --title "Hazır ${ID}" --notes-file notes.txt --repo "${{ github.repository }}"
+      - name: Sıradakini başlat
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -n "${{ needs.sec.outputs.rest }}" ]; then
+            gh workflow run hazirla.yml -f bolum="${{ needs.sec.outputs.rest }}" --repo "${{ github.repository }}"
+          else
+            gh workflow run hazirla.yml --repo "${{ github.repository }}"
+          fi

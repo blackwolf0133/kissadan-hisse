@@ -1,0 +1,23 @@
+# Hiçbir şey paylaşmadan Instagram bağlantısını test eder.
+name: Bağlantı testi
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instagram hesabını kontrol et
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_MODE: ${{ vars.IG_MODE }}
+        run: |
+          python -c "import os,publisher; t=os.environ['IG_ACCESS_TOKEN']; print('Anahtar türü:', publisher.detect_mode(t), '| uzunluk:', len(t))"
+          python tools/teshis.py || true
+          python daily.py check
