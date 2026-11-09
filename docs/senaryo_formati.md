@@ -26,3 +26,15 @@
 ## Çizim kuralları (stil otomatik: düz 2D çizgi film, kalın çizgi, sıcak toprak renkleri)
 - Karakterleri `characters` içinde ayırt edici tarif et, sahnelerde {AD} ile kullan; sahnede en fazla 2-3 ana karakter.
 - Tek net eylem; yazı/tabela isteme; şiddet ve yara gösterme (düşme vb. ima edilir).
+
+## Haftalık trend raporu (last30days)
+Her pazartesi blackwolf0133/cop-adamla-tarih deposundaki "Trend araştırma" iş akışı son 30 günün trendlerini 6 kanal için tarar
+(YouTube, Reddit vb.; SCRAPECREATORS anahtarı varsa Instagram ve TikTok da). Yeni bölüm yazmadan önce en yeni raporu oku:
+
+```bash
+TAG=$(gh api "repos/blackwolf0133/cop-adamla-tarih/releases?per_page=20" --jq '[.[]|select(.tag_name|startswith("trend-"))][0].tag_name')
+ID=$(gh api "repos/blackwolf0133/cop-adamla-tarih/releases/tags/$TAG" --jq '.assets[]|select(.name=="kissa.md").id')
+gh api -H "Accept: application/octet-stream" "repos/blackwolf0133/cop-adamla-tarih/releases/assets/$ID" > /tmp/trend.md
+```
+Bu kanalın dosyası: **kissa.md**. Rapordaki tutan kanca kalıplarını, konu açılarını ve formatları kendi kurallarımıza uyarlayarak kullan;
+başka içerik üreticilerinin metnini, videosunu ya da hikâyesini kopyalama. Rapor yoksa ya da eskiyse (14 günden eski) bu adımı atla.
