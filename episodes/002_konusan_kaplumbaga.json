@@ -10,16 +10,16 @@
  "scenes": [
   {
    "text": "Bir kaplumbağa gökyüzünde uçmayı başardı. Ama tek bir kelime yüzünden her şeyi kaybetti.",
-   "prompt": "{KAPLUMBAGA} high in a blue sky biting the middle of a stick carried by {KAZLAR}, wide view over fields",
+   "prompt": "{KAZLAR} flying high in a blue sky holding the two ends of a long stick in their beaks, {KAPLUMBAGA} hanging from the middle of the stick by its mouth, wide view over fields far below, no people",
    "yer": "Kelile ve Dimne"
   },
   {
    "text": "Kuraklık gelmiş, göl kurumuş. İki kaz, dostları kaplumbağayı da yanlarında götürmek istemiş.",
-   "prompt": "{KAZLAR} standing next to {KAPLUMBAGA} on the cracked dry bottom of a dried-up lake, hot sun"
+   "prompt": "{KAZLAR} standing next to {KAPLUMBAGA} on the cracked dry bottom of a dried-up lake, hot sun, only animals, no people"
   },
   {
    "text": "Bir dal bulmuşlar. Sen ortasından ısır, biz uçlarından tutup uçalım. Ama sakın ağzını açma!",
-   "prompt": "{KAZLAR} each holding one end of a long stick in their beaks while {KAPLUMBAGA} bites the middle of the stick, ready to fly"
+   "prompt": "{KAZLAR} standing on the ground each holding one end of a long stick in their beaks while {KAPLUMBAGA} bites the middle of the stick, ready to take off, only animals, no people"
   },
   {
    "text": "Köylerin üstünden geçerken aşağıdakiler bağırmış: Bakın, kazlar kaplumbağa taşıyor!",
@@ -27,11 +27,11 @@
   },
   {
    "text": "Kaplumbağa dayanamamış. Size ne! diye bağırmak için ağzını açmış.",
-   "prompt": "close-up of {KAPLUMBAGA} in the sky opening its mouth to shout, letting go of the stick, surprised {KAZLAR} looking back"
+   "prompt": "{KAPLUMBAGA} high in the sky opening its mouth to shout and letting go of the stick, {KAZLAR} flying and holding the stick looking back surprised, only animals, no people"
   },
   {
    "text": "Ve dalı bırakıp aşağı düşmüş. Kazlar ne kadar uğraşsa da onu tutamamış.",
-   "prompt": "{KAZLAR} flying down in panic toward a small falling turtle silhouette far below, cartoon motion lines, no injury shown"
+   "prompt": "{KAZLAR} flying downward in panic toward a small turtle silhouette falling far below toward green fields, cartoon motion lines, no injury shown, no people"
   },
   {
    "text": "Bazen seni en yükseğe taşıyan şey, ağzını kapalı tutabilmektir.",
