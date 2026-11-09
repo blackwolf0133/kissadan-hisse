@@ -9,7 +9,7 @@
  "scenes": [
   {
    "text": "Aynı adam, aynı düğün. Ama ikinci gelişinde onu baş köşeye oturttular.",
-   "prompt": "{HOCA} wearing a rich fur coat being seated at the head of a long festive village wedding table by smiling hosts",
+   "prompt": "{HOCA} wearing a rich fur coat being seated at the head of a long low festive table by smiling villagers in traditional Anatolian clothes, old village wedding",
    "yer": "Nasreddin Hoca"
   },
   {
@@ -18,7 +18,7 @@
   },
   {
    "text": "Kimse yer göstermemiş. Kimse bir kâse çorba bile uzatmamış.",
-   "prompt": "{HOCA} in a patched brown robe sitting alone at the far end of a crowded wedding hall, guests turning their backs to him, an empty bowl in front of him"
+   "prompt": "{HOCA} in a patched brown robe sitting alone at the far end of a crowded old village wedding hall, villagers in traditional clothes turning their backs to him, an empty bowl in front of him"
   },
   {
    "text": "Hoca sessizce evine dönmüş. Sandıktan en gösterişli kürkünü çıkarıp giymiş.",
@@ -26,11 +26,11 @@
   },
   {
    "text": "Aynı düğüne geri geldiğinde, herkes ayağa kalkmış. En güzel yemekler önüne konmuş.",
-   "prompt": "guests standing up and bowing as {HOCA} in a luxurious fur coat enters the wedding hall, servants bringing big plates of food"
+   "prompt": "villagers in traditional Anatolian clothes standing up and bowing as {HOCA} in a luxurious fur coat enters the wedding hall, servants bringing big copper trays of food"
   },
   {
    "text": "Hoca kürkünün yenini çorbaya batırmış: Ye kürküm ye! Bu sofraya davet edilen sensin.",
-   "prompt": "{HOCA} in a fur coat dipping the long sleeve of his coat into a bowl of soup while surprised guests stare at him"
+   "prompt": "{HOCA} in a fur coat holding his arm over a bowl of soup so the wide furry cuff of his coat sleeve dips into the soup, no spoon, surprised villagers in traditional clothes staring"
   },
   {
    "text": "İnsanlar sana değil de üstündekine yer açıyorsa, o sofra senin sofran değildir.",
