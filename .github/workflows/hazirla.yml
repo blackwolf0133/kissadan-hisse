@@ -152,8 +152,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # Sırada bekleyen başka bir Hazırla varsa (elle başlatılmış) onu iptal etmemek için zinciri başlatma
+          bekleyen=$(gh api "repos/${{ github.repository }}/actions/workflows/hazirla.yml/runs?per_page=10" \
+            --jq '[.workflow_runs[] | select(.status=="queued" or .status=="pending" or .status=="waiting")] | length')
           if [ -n "${{ needs.sec.outputs.rest }}" ]; then
             gh workflow run hazirla.yml -f bolum="${{ needs.sec.outputs.rest }}" --repo "${{ github.repository }}"
+          elif [ "$bekleyen" != "0" ]; then
+            echo "Sırada bekleyen bir Hazırla var, zincir başlatılmadı."
           else
             gh workflow run hazirla.yml --repo "${{ github.repository }}"
           fi
