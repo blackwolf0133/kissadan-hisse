@@ -12,7 +12,8 @@ MODEL = {
 STYLE = ("Flat 2D cartoon illustration in a classic storybook animation style, bold clean dark outlines, "
          "simple shapes, warm earthy palette (ochre, terracotta, olive, cream), soft textured paper background, "
          "expressive friendly characters, clear readable composition, traditional old-time Anatolian folk-tale world. "
-         "Only draw the characters described in the scene; do not add extra people. If people appear they wear period "
+         "Only draw the characters described in the scene; do not add extra people. Animals look like natural animals "
+         "(no clothes, no hats, no human faces). If people appear they wear period "
          "clothing (robes, vests, şalvar, headscarves, turbans); no modern clothes, no suits, no modern objects, "
          "no text, no letters.")
 WIDTH, HEIGHT = 768, 1024

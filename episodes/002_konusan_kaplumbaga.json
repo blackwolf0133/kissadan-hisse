@@ -19,7 +19,7 @@
   },
   {
    "text": "Bir dal bulmuşlar. Sen ortasından ısır, biz uçlarından tutup uçalım. Ama sakın ağzını açma!",
-   "prompt": "{KAZLAR} standing on the ground each holding one end of a long stick in their beaks while {KAPLUMBAGA} bites the middle of the stick, ready to take off, only animals, no people"
+   "prompt": "{KAZLAR} standing on the ground, each holding one end of a long stick in its beak (not with wings), while {KAPLUMBAGA} bites the middle of the stick with its mouth, ready to take off; plain animals with no clothes and no hats, no people"
   },
   {
    "text": "Köylerin üstünden geçerken aşağıdakiler bağırmış: Bakın, kazlar kaplumbağa taşıyor!",
@@ -35,7 +35,7 @@
   },
   {
    "text": "Bazen seni en yükseğe taşıyan şey, ağzını kapalı tutabilmektir.",
-   "prompt": "{KAZLAR} flying alone toward a sunset over green hills, a long stick drifting in the wind"
+   "prompt": "{KAZLAR} flying away together toward a sunset over green hills, a long stick drifting down in the wind; only two ordinary white geese with goose heads, no people, no human faces"
   }
  ],
  "hisse": "Bazen seni en yükseğe taşıyan şey, ağzını kapalı tutabilmektir.",
