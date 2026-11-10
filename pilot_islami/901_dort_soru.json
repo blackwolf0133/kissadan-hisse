@@ -8,18 +8,18 @@
  "scenes": [
   {
    "text": "Kıyamet günü hiç kimse yerinden kıpırdayamayacak. Dört soruya cevap vermeden.",
-   "prompt": "a vast misty plain at dawn under a pale gold sky, an endless crowd of small faceless robed figures standing perfectly still, seen from far above and behind, light rays breaking through clouds",
+   "prompt": "a vast misty plain at dawn under a pale gold sky, an endless crowd of tiny distant faceless figures standing perfectly still, seen from far above and behind, light rays breaking through clouds",
    "sis": 0.3
   },
   {
    "text": "Bunu Peygamber Efendimiz haber verdi. Soruları da tek tek saydı.",
-   "prompt": "an old closed leather-bound book lying on a wooden folding reading stand beside a small oil lamp in a quiet dark room, warm lamp glow",
+   "prompt": "an old closed leather-bound book lying on a wooden folding reading stand beside a small oil lamp in a quiet dark empty room, no people, warm lamp glow",
    "yer": "Tirmizî, Kıyâme 1",
    "sicak": true
   },
   {
    "text": "Birincisi: Ömrünü nerede tükettin? Günler, bir ekranın ışığında akıp gitmedi mi?",
-   "prompt": "a large hourglass on a bedside table at night with its sand almost run out, a phone screen glowing blue beside it, a faceless young man lying in bed in the dark background"
+   "prompt": "a large hourglass on a bedside table at night with its sand almost run out, a phone screen glowing blue beside it, a faceless bare-headed young man lying in bed in the dark background"
   },
   {
    "text": "İkincisi: Öğrendiklerinle ne yaptın? Bilmek yetmez, yaşamak gerekir.",
@@ -27,21 +27,21 @@
   },
   {
    "text": "Üçüncüsü: Malını nereden kazandın, nereye harcadın? Her kuruşun iki sorusu var.",
-   "prompt": "a small old grocery shop at dusk, an old brass balance scale and a few coins on the wooden counter, a faceless shopkeeper in a vest standing behind the counter, warm light",
+   "prompt": "a small old grocery shop at dusk, an old brass balance scale and a few coins on the wooden counter, a faceless bare-headed shopkeeper man in a vest standing behind the counter, warm light",
    "sicak": true
   },
   {
    "text": "Dördüncüsü: Bedenini nerede yıprattın? Sana emanet edilen o bedeni.",
-   "prompt": "a tired faceless man in a worn work jacket sitting alone on concrete stairs under a streetlamp at night, a hard hat on the step beside him, city lights in the background"
+   "prompt": "a tired faceless bare-headed man in a worn work jacket sitting alone on concrete stairs under a streetlamp at night, a white hard hat on the step beside him, city lights in the background"
   },
   {
    "text": "Sorular bize önceden söylendi. Cevapları ise her gün, kendi ellerimizle yazıyoruz.",
-   "prompt": "first light of sunrise over old city rooftops, a mosque dome and two minarets in silhouette, a single faceless figure opening a window in the foreground, golden light",
+   "prompt": "first light of sunrise over old city rooftops, a mosque dome and two minarets in silhouette, an open window with curtains moving in the foreground, no people, golden light",
    "sicak": true
   },
   {
    "text": "Allah'ım, o gün bizi mahcup etme. Bu dört soruyu bir kardeşine de hatırlat.",
-   "prompt": "two faceless figures in long coats walking side by side across a quiet stone courtyard at dawn, long soft shadows, birds in the sky"
+   "prompt": "two faceless bare-headed men in long coats walking side by side across a quiet stone courtyard at dawn, seen from behind, long soft shadows, birds in the sky"
   }
  ],
  "hisse": "Hiçbir kul; ömrünü nerede tükettiğinden, ilmiyle ne yaptığından, malını nereden kazanıp nereye harcadığından, bedenini nerede yıprattığından sorulmadıkça kıyamet günü yerinden kıpırdayamaz.",

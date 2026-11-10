@@ -13,11 +13,11 @@
   },
   {
    "text": "Ramazan'da her gece bir cüz okudun. Bayramdan sonra Kur'an rafa kalktı.",
-   "prompt": "a book wrapped respectfully in a clean green cloth placed on a high wooden shelf in a dim quiet living room, no text visible"
+   "prompt": "a book wrapped respectfully in a clean green cloth placed on a high wooden shelf in a dim quiet empty living room, no people, no text visible"
   },
   {
    "text": "Komşun ise her sabah yalnızca bir sayfa okuyor. Yıllardır, hiç bırakmadan.",
-   "prompt": "an elderly faceless woman in a white headscarf sitting by a window at sunrise with an open book on a small wooden folding stand, no visible text, plants on the windowsill, soft morning light",
+   "prompt": "an elderly faceless woman in a white headscarf sitting alone by a window at sunrise with an open book on a small wooden folding stand, no visible text, plants on the windowsill, soft morning light",
    "sicak": true
   },
   {
@@ -32,7 +32,7 @@
   },
   {
    "text": "Bugün küçük bir şey seç. Bir sayfa, bir dua, bir selam.",
-   "prompt": "a faceless young man in a jacket greeting an elderly faceless neighbor with a cane on an apartment staircase in the morning, warm light from a window",
+   "prompt": "a faceless bare-headed young man in a jacket greeting an elderly faceless bare-headed man with a cane on an apartment staircase in the morning, warm light from a window",
    "sicak": true
   },
   {
@@ -41,7 +41,7 @@
   },
   {
    "text": "Seninle birlikte başlayacak bir kardeşine gönder.",
-   "prompt": "two faceless figures walking toward a small neighborhood mosque at sunrise, quiet street, soft golden light",
+   "prompt": "two faceless bare-headed men in jackets walking side by side toward a small neighborhood mosque at sunrise, seen from behind, quiet street, soft golden light",
    "sicak": true
   }
  ],

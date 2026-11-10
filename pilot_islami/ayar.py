@@ -27,8 +27,9 @@ SC.STYLE = (
     "Cinematic stylized 3D animation still, soft low-poly look, smooth matte surfaces, dramatic volumetric light, "
     "deep night blue and warm gold palette, calm reverent mood, film grain, clear simple composition. "
     "All human figures are smooth faceless mannequin-like characters: blank smooth heads with NO eyes, NO nose, "
-    "NO mouth, no facial features at all; modest clothing (long coats, robes, headscarves for women); "
-    "only draw the figures described in the scene, do not add extra people. "
+    "NO mouth, no facial features at all. Men wear ordinary modest modern clothes (jackets, coats, trousers) and have "
+    "bare smooth heads unless a cap is described; a headscarf ONLY on a figure explicitly described as a woman. "
+    "Draw exactly the number of people described in the scene; if the scene mentions no person, draw NO people at all. "
     "No angels, no winged beings, no glowing holy figures, no prophets, no religious leaders. "
     "No text, no letters, no calligraphy, no writing on any surface, no logos. No blood, no injury, no fire on people.")
 

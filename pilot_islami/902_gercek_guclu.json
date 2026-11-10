@@ -8,39 +8,39 @@
  "scenes": [
   {
    "text": "Güreşte herkesi yenen adam mı güçlü? Peygamber Efendimiz başka birini gösterdi.",
-   "prompt": "two faceless wrestlers in traditional dark leather knee-length trousers grappling on a green meadow at sunset, a few spectator silhouettes far away",
+   "prompt": "two faceless MEN wrestlers, both bare-headed and shirtless, wearing traditional dark leather knee-length trousers, grappling on a green meadow at sunset, a few small spectator silhouettes far away",
    "sicak": true
   },
   {
    "text": "Akşam trafiği. Yağmur. Biri aniden önüne kırdı.",
-   "prompt": "rainy city street at night, red brake lights, a car suddenly cutting in front of another car, reflections on the wet asphalt, view from behind the second car"
+   "prompt": "rainy city street at night seen from inside a car through the windshield, a red car suddenly cutting in front, red brake lights, reflections on the wet asphalt, no pedestrians, no people outside"
   },
   {
    "text": "Kalbin hızlandı. Söyleyeceğin söz, dilinin ucunda.",
-   "prompt": "inside a car at night seen from the back seat, a faceless driver silhouette with tense raised shoulders, no hands visible, rain streaks on the windshield, blurred red lights ahead"
+   "prompt": "inside a car at night seen from the back seat, a faceless bare-headed man in a jacket in the driver's seat with tense raised shoulders, no hands visible, rain streaks on the windshield, blurred red lights ahead"
   },
   {
    "text": "İşte o an, asıl güreş başlıyor. Rakibin dışarıda değil, içeride.",
-   "prompt": "a faceless man standing alone in a dark empty room facing his own large dark shadow on the wall, a flash of storm light from a window"
+   "prompt": "a faceless bare-headed man in a dark jacket standing alone in a dark empty room facing his own large dark shadow on the wall, a flash of storm light from a window"
   },
   {
    "text": "Peygamber Efendimiz buyurdu: Güçlü kimse, güreşte rakibini yenen değildir. Güçlü kimse, öfkelendiğinde kendine hâkim olandır.",
-   "prompt": "a calm empty meadow at dusk, golden grass moving in the wind, a single old tree, soft warm light",
+   "prompt": "a calm empty meadow at dusk with golden grass moving in the wind and a single old tree, no people, no animals, soft warm light",
    "yer": "Buhârî, Edeb 76 · Müslim, Birr 107",
    "sicak": true
   },
   {
    "text": "Derin bir nefes aldın. Sustun. Yoluna devam ettin.",
-   "prompt": "a car driving calmly on a wet city road at night as the rain stops, warm streetlights, gentle peaceful mood"
+   "prompt": "a single car driving calmly away on a wet empty city road at night as the rain stops, warm streetlights, no pedestrians, no people"
   },
   {
    "text": "Bu zaferi kimse görmedi. Ama o akşam evine bir şampiyon döndü.",
-   "prompt": "a faceless man in a coat walking up to the warm lit doorway of an apartment building at night, the silhouettes of a small family waiting inside the lit window",
+   "prompt": "a faceless bare-headed man in a coat walking up to the warm lit doorway of an apartment building at night, inside the lit window the silhouettes of a woman in a headscarf and a small child waiting",
    "sicak": true
   },
   {
    "text": "Öfkesini yenmeye çalışan bir kardeşine gönder.",
-   "prompt": "two faceless friends sitting on a bench by the sea at dusk, seagulls, calm water, soft light"
+   "prompt": "two faceless bare-headed men in jackets sitting on a bench by the sea at dusk, seen from behind, seagulls, calm water, soft light"
   }
  ],
  "hisse": "Güçlü kimse, güreşte rakibini yenen değil; öfkelendiğinde kendine hâkim olandır.",
