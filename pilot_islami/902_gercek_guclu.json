@@ -1,0 +1,61 @@
+{
+ "id": "902",
+ "slug": "gercek_guclu",
+ "title": "Gerçek Güçlü",
+ "seed": 9022,
+ "pilot": true,
+ "characters": {},
+ "scenes": [
+  {
+   "text": "Güreşte herkesi yenen adam mı güçlü? Peygamber Efendimiz başka birini gösterdi.",
+   "prompt": "two faceless wrestlers in traditional dark leather knee-length trousers grappling on a green meadow at sunset, a few spectator silhouettes far away",
+   "sicak": true
+  },
+  {
+   "text": "Akşam trafiği. Yağmur. Biri aniden önüne kırdı.",
+   "prompt": "rainy city street at night, red brake lights, a car suddenly cutting in front of another car, reflections on the wet asphalt, view from behind the second car"
+  },
+  {
+   "text": "Kalbin hızlandı. Söyleyeceğin söz, dilinin ucunda.",
+   "prompt": "inside a car at night seen from the back seat, a faceless driver silhouette with tense raised shoulders, no hands visible, rain streaks on the windshield, blurred red lights ahead"
+  },
+  {
+   "text": "İşte o an, asıl güreş başlıyor. Rakibin dışarıda değil, içeride.",
+   "prompt": "a faceless man standing alone in a dark empty room facing his own large dark shadow on the wall, a flash of storm light from a window"
+  },
+  {
+   "text": "Peygamber Efendimiz buyurdu: Güçlü kimse, güreşte rakibini yenen değildir. Güçlü kimse, öfkelendiğinde kendine hâkim olandır.",
+   "prompt": "a calm empty meadow at dusk, golden grass moving in the wind, a single old tree, soft warm light",
+   "yer": "Buhârî, Edeb 76 · Müslim, Birr 107",
+   "sicak": true
+  },
+  {
+   "text": "Derin bir nefes aldın. Sustun. Yoluna devam ettin.",
+   "prompt": "a car driving calmly on a wet city road at night as the rain stops, warm streetlights, gentle peaceful mood"
+  },
+  {
+   "text": "Bu zaferi kimse görmedi. Ama o akşam evine bir şampiyon döndü.",
+   "prompt": "a faceless man in a coat walking up to the warm lit doorway of an apartment building at night, the silhouettes of a small family waiting inside the lit window",
+   "sicak": true
+  },
+  {
+   "text": "Öfkesini yenmeye çalışan bir kardeşine gönder.",
+   "prompt": "two faceless friends sitting on a bench by the sea at dusk, seagulls, calm water, soft light"
+  }
+ ],
+ "hisse": "Güçlü kimse, güreşte rakibini yenen değil; öfkelendiğinde kendine hâkim olandır.",
+ "kaynak": "Buhârî, Edeb 76 · Müslim, Birr 107",
+ "kart_baslik": "HADİS-İ ŞERİF",
+ "caption": "Asıl güreş içeride 🤍\n\nTrafikte, evde, iş yerinde… Öfke geldiğinde gerçek güçlü kim?\n\nKaynak: Buhârî, Edeb 76 · Müslim, Birr 107\n\nHer akşam bir hadis, bir gün. Takip et 🤍",
+ "hashtags": [
+  "#hadis",
+  "#öfke",
+  "#sabır",
+  "#islam",
+  "#birhadisbirgün"
+ ],
+ "kaynaklar": [
+  "https://hadeethenc.com/tr/browse/hadith/5351 (Sahih, muttefekun aleyh; Buhârî 6114; Ebû Hüreyre)",
+  "https://sorularlaislamiyet.com/gercek-yigit-kimdir (Buhârî, Edeb 76; Müslim, Birr 107-108)"
+ ]
+}

@@ -1,0 +1,145 @@
+# İslami kanal PİLOTU: pilot_islami/ altındaki bir bölümü çizer, seslendirir ve "pilot-<id>" sürümüne koyar.
+# PAYLAŞIM YAPMAZ. Kıssadan Hisse'nin bölümlerine, hazir-* sürümlerine ve state/ dosyalarına dokunmaz.
+name: Pilot (İslami kanal, yayınsız)
+
+on:
+  workflow_dispatch:
+    inputs:
+      bolum:
+        description: "Pilot bölüm (901, 902, 903)"
+        default: "901"
+      sesler:
+        description: "Gemini sesleri (JSON liste)"
+        default: '["Orus"]'
+      ciz:
+        description: "Sahneleri yeniden çiz (false = mevcut çizimleri kullan, sadece ses dene)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pilot-${{ inputs.bolum }}
+  cancel-in-progress: false
+
+jobs:
+  hazirla:
+    runs-on: ubuntu-latest
+    outputs:
+      path: ${{ steps.t.outputs.path }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: t
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          path=$(ls pilot_islami/${{ inputs.bolum }}_*.json)
+          echo "path=$path" >> "$GITHUB_OUTPUT"
+          tag="pilot-${{ inputs.bolum }}"
+          if [ "${{ inputs.ciz }}" = "true" ]; then
+            gh release delete "$tag" --cleanup-tag -y --repo "${{ github.repository }}" 2>/dev/null || true
+          fi
+          gh release view "$tag" --repo "${{ github.repository }}" >/dev/null 2>&1 || \
+            gh release create "$tag" --prerelease --title "Pilot ${{ inputs.bolum }} (yayınsız)" \
+              --notes "İslami kanal pilotu. PAYLAŞILMADI." --repo "${{ github.repository }}"
+
+  ciz:
+    needs: hazirla
+    if: inputs.ciz
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        sahne: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Bu sahne var mı?
+        id: sel
+        run: |
+          n=$(python -c "import json;print(len(json.load(open('${{ needs.hazirla.outputs.path }}'))['scenes']))")
+          if [ ${{ matrix.sahne }} -le $n ]; then echo "go=1" >> "$GITHUB_OUTPUT"; fi
+      - name: Önbellek (sd.cpp)
+        if: steps.sel.outputs.go == '1'
+        id: sdcache
+        uses: actions/cache@v4
+        with:
+          path: ~/sdbin
+          key: sdcpp-cpu-v1
+      - name: stable-diffusion.cpp derle
+        if: steps.sel.outputs.go == '1' && steps.sdcache.outputs.cache-hit != 'true'
+        run: |
+          git clone --recursive --depth 1 https://github.com/leejet/stable-diffusion.cpp /tmp/sd
+          cmake -S /tmp/sd -B /tmp/sd/build -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=OFF -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON
+          cmake --build /tmp/sd/build --config Release -j4
+          mkdir -p ~/sdbin && cp /tmp/sd/build/bin/* ~/sdbin/
+      - name: Önbellek (çizim modeli)
+        if: steps.sel.outputs.go == '1'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-klein4b-v1
+      - run: pip install huggingface_hub -r requirements.txt
+        if: steps.sel.outputs.go == '1'
+      - name: Çiz
+        if: steps.sel.outputs.go == '1'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PYTHONUNBUFFERED: "1"
+        run: python -m pilot_islami.ciz "${{ needs.hazirla.outputs.path }}" ${{ matrix.sahne }} ~/sdbin/sd-cli out
+      - name: Sürüme ekle
+        if: always() && steps.sel.outputs.go == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ls out/*.png >/dev/null 2>&1 || exit 0
+          gh release upload "pilot-${{ inputs.bolum }}" out/*.png --clobber --repo "${{ github.repository }}"
+
+  birlestir:
+    needs: [hazirla, ciz]
+    if: always() && needs.hazirla.result == 'success' && needs.ciz.result != 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        ses: ${{ fromJSON(inputs.sesler) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Kurulum
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+          pip install -r requirements.txt
+          pip install faster-whisper || true
+          pip install transformers torch --extra-index-url https://download.pytorch.org/whl/cpu || true
+      - name: Önbellek (modeller)
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/huggingface
+            models
+          key: kv-modeller-v1
+      - name: Sahneleri al
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download "pilot-${{ inputs.bolum }}" -p 'sahne*.png' -D img --repo "${{ github.repository }}" && ls img
+      - name: Videoyu birleştir
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_VOICE: ${{ matrix.ses }}
+          GEMINI_TEMPO: "0.95"
+          PYTHONUNBUFFERED: "1"
+        run: |
+          mkdir -p out && python -m pilot_islami.video "${{ needs.hazirla.outputs.path }}" img "out/pilot_${{ inputs.bolum }}_${{ matrix.ses }}.mp4"
+      - name: Sürüme ekle
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "pilot-${{ inputs.bolum }}" out/*.mp4 --clobber --repo "${{ github.repository }}"
