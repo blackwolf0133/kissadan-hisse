@@ -15,6 +15,9 @@ on:
         description: "Sahneleri yeniden çiz (false = mevcut çizimleri kullan, sadece ses dene)"
         type: boolean
         default: true
+      sahneler:
+        description: "Sadece bu sahneleri yeniden çiz (ör. 2 5 7); boşsa hepsi"
+        default: ""
 
 permissions:
   contents: write
@@ -37,7 +40,7 @@ jobs:
           path=$(ls pilot_islami/${{ inputs.bolum }}_*.json)
           echo "path=$path" >> "$GITHUB_OUTPUT"
           tag="pilot-${{ inputs.bolum }}"
-          if [ "${{ inputs.ciz }}" = "true" ]; then
+          if [ "${{ inputs.ciz }}" = "true" ] && [ -z "${{ inputs.sahneler }}" ]; then
             gh release delete "$tag" --cleanup-tag -y --repo "${{ github.repository }}" 2>/dev/null || true
           fi
           gh release view "$tag" --repo "${{ github.repository }}" >/dev/null 2>&1 || \
@@ -62,7 +65,8 @@ jobs:
         id: sel
         run: |
           n=$(python -c "import json;print(len(json.load(open('${{ needs.hazirla.outputs.path }}'))['scenes']))")
-          if [ ${{ matrix.sahne }} -le $n ]; then echo "go=1" >> "$GITHUB_OUTPUT"; fi
+          S=" ${{ inputs.sahneler }} "
+          if [ ${{ matrix.sahne }} -le $n ] && { [ -z "${{ inputs.sahneler }}" ] || [[ "$S" == *" ${{ matrix.sahne }} "* ]]; }; then echo "go=1" >> "$GITHUB_OUTPUT"; fi
       - name: Önbellek (sd.cpp)
         if: steps.sel.outputs.go == '1'
         id: sdcache

@@ -13,7 +13,8 @@
   },
   {
    "text": "Akşam trafiği. Yağmur. Biri aniden önüne kırdı.",
-   "prompt": "rainy city street at night seen from inside a car through the windshield, a red car suddenly cutting in front, red brake lights, reflections on the wet asphalt, no pedestrians, no people outside"
+   "prompt": "rainy city street at night seen from inside a car through the windshield, a red car suddenly cutting in front, red brake lights, reflections on the wet asphalt, no pedestrians, no people outside",
+   "insan": false
   },
   {
    "text": "Kalbin hızlandı. Söyleyeceğin söz, dilinin ucunda.",
@@ -27,11 +28,13 @@
    "text": "Peygamber Efendimiz buyurdu: Güçlü kimse, güreşte rakibini yenen değildir. Güçlü kimse, öfkelendiğinde kendine hâkim olandır.",
    "prompt": "a calm empty meadow at dusk with golden grass moving in the wind and a single old tree, no people, no animals, soft warm light",
    "yer": "Buhârî, Edeb 76 · Müslim, Birr 107",
-   "sicak": true
+   "sicak": true,
+   "insan": false
   },
   {
    "text": "Derin bir nefes aldın. Sustun. Yoluna devam ettin.",
-   "prompt": "a single car driving calmly away on a wet empty city road at night as the rain stops, warm streetlights, no pedestrians, no people"
+   "prompt": "a single car driving calmly away on a wet empty city road at night as the rain stops, warm streetlights, no pedestrians, no people",
+   "insan": false
   },
   {
    "text": "Bu zaferi kimse görmedi. Ama o akşam evine bir şampiyon döndü.",

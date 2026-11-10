@@ -15,7 +15,8 @@
    "text": "Bunu Peygamber Efendimiz haber verdi. Soruları da tek tek saydı.",
    "prompt": "an old closed leather-bound book lying on a wooden folding reading stand beside a small oil lamp in a quiet dark empty room, no people, warm lamp glow",
    "yer": "Tirmizî, Kıyâme 1",
-   "sicak": true
+   "sicak": true,
+   "insan": false
   },
   {
    "text": "Birincisi: Ömrünü nerede tükettin? Günler, bir ekranın ışığında akıp gitmedi mi?",
@@ -36,8 +37,9 @@
   },
   {
    "text": "Sorular bize önceden söylendi. Cevapları ise her gün, kendi ellerimizle yazıyoruz.",
-   "prompt": "first light of sunrise over old city rooftops, a mosque dome and two minarets in silhouette, an open window with curtains moving in the foreground, no people, golden light",
-   "sicak": true
+   "prompt": "first light of sunrise over old city rooftops, in the distance a small Ottoman-style mosque with a single dome topped by a golden crescent finial and one slender minaret, no crosses, an open window with white curtains moving in the foreground, no people, golden light",
+   "sicak": true,
+   "insan": false
   },
   {
    "text": "Allah'ım, o gün bizi mahcup etme. Bu dört soruyu bir kardeşine de hatırlat.",

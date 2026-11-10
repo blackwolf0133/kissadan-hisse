@@ -31,7 +31,27 @@ SC.STYLE = (
     "bare smooth heads unless a cap is described; a headscarf ONLY on a figure explicitly described as a woman. "
     "Draw exactly the number of people described in the scene; if the scene mentions no person, draw NO people at all. "
     "No angels, no winged beings, no glowing holy figures, no prophets, no religious leaders. "
+    "Mosques always have crescent finials, never crosses; no churches, no crosses anywhere. "
     "No text, no letters, no calligraphy, no writing on any surface, no logos. No blood, no injury, no fire on people.")
+
+# İnsansız sahneler ("insan": false) için ayrı stil: figür tarifini hiç içermez, model figür eklemesin.
+STYLE_BOS = (
+    "Cinematic stylized 3D animation still, soft low-poly look, smooth matte surfaces, dramatic volumetric light, "
+    "deep night blue and warm gold palette, calm reverent mood, film grain, clear simple composition. "
+    "EMPTY SCENE: absolutely no people, no human figures, no mannequins, no dolls, no figurines, no statues, no silhouettes. "
+    "Mosques always have crescent finials, never crosses; no churches, no crosses anywhere. "
+    "No text, no letters, no calligraphy, no writing on any surface, no logos.")
+
+
+def build_prompt(ep, idx):
+    sahne = ep["scenes"][idx - 1]
+    sc = sahne["prompt"]
+    for key, desc in ep.get("characters", {}).items():
+        sc = sc.replace("{" + key + "}", desc)
+    return f"{sc} {STYLE_BOS if sahne.get('insan') is False else SC.STYLE}"
+
+
+SC.build_prompt = build_prompt
 
 SC.QA_PROMPT = (
     "You are a strict quality checker for stylized 3D animation stills used in short reverent Islamic reminder "
@@ -39,7 +59,9 @@ SC.QA_PROMPT = (
     "features (eyes, nose, mouth) counts as a SEVERE error because all figures must be faceless; extra or missing "
     "limbs, deformed hands, objects duplicated when there should be one, objects merging into bodies, floating or "
     "impossible objects, broken perspective, any visible text, letters or calligraphy (severe), any winged or angelic "
-    "being (severe), any gore, blood or injury (severe). Ignore artistic style. "
+    "being (severe), any cross or church symbol (severe), any person, figure, doll or figurine in a scene whose "
+    "description says no people (severe), a woman's headscarf on a figure described as a man (severe), "
+    "any gore, blood or injury (severe). Ignore artistic style. "
     "Reply ONLY with JSON: {{\"ok\": true/false, \"siddet\": 0-10 (0 = flawless, 10 = unusable), "
     "\"sorun\": \"short description in Turkish or empty\"}}")
 

@@ -8,12 +8,14 @@
  "scenes": [
   {
    "text": "Allah'ın en sevdiği amel, en büyük olanı değil. Peki hangisi?",
-   "prompt": "a single small oil lamp glowing on a windowsill of a dark old house at night, rain outside the window",
-   "sicak": true
+   "prompt": "a single small oil lamp glowing on the windowsill of a dark old house at night, rain on the window glass, no people",
+   "sicak": true,
+   "insan": false
   },
   {
    "text": "Ramazan'da her gece bir cüz okudun. Bayramdan sonra Kur'an rafa kalktı.",
-   "prompt": "a book wrapped respectfully in a clean green cloth placed on a high wooden shelf in a dim quiet empty living room, no people, no text visible"
+   "prompt": "a high wooden wall shelf in a dim quiet empty living room, on the shelf lies one single closed book wrapped in a clean green cloth, nothing else on the shelf, no people, no figurines",
+   "insan": false
   },
   {
    "text": "Komşun ise her sabah yalnızca bir sayfa okuyor. Yıllardır, hiç bırakmadan.",
@@ -22,13 +24,15 @@
   },
   {
    "text": "Peygamber Efendimiz'e soruldu: Allah'a en sevimli amel hangisidir? Buyurdu ki: Az da olsa devamlı olanı.",
-   "prompt": "close-up of rain drops falling one by one onto a large smooth stone with a small hollow worn into its top, soft light",
-   "yer": "Buhârî, Rikâk 18 · Müslim, Müsâfirîn 216"
+   "prompt": "close-up of rain drops falling one by one onto a large smooth grey stone with a small hollow worn into its top, nothing standing on the stone, no people, soft light",
+   "yer": "Buhârî, Rikâk 18 · Müslim, Müsâfirîn 216",
+   "insan": false
   },
   {
    "text": "Damla damla göl olur derler. Damlanın sırrı büyüklüğünde değil, hiç durmamasında.",
-   "prompt": "a small mountain lake at dawn being filled by a thin steady stream of water falling from a rock, light mist",
-   "sis": 0.25
+   "prompt": "a small mountain lake at dawn being filled by a thin steady stream of water falling from a rock, light mist, empty shore, no people",
+   "sis": 0.25,
+   "insan": false
   },
   {
    "text": "Bugün küçük bir şey seç. Bir sayfa, bir dua, bir selam.",
@@ -37,11 +41,12 @@
   },
   {
    "text": "Ve yarın da bırakma. Az olsun, ama hiç eksik olmasın.",
-   "prompt": "a row of small potted seedlings on a balcony, each one slightly taller than the one before from left to right, morning sun"
+   "prompt": "a row of five small clay pots with green seedlings on an empty balcony railing, each seedling slightly taller than the one before from left to right, morning sun, no people",
+   "insan": false
   },
   {
    "text": "Seninle birlikte başlayacak bir kardeşine gönder.",
-   "prompt": "two faceless bare-headed men in jackets walking side by side toward a small neighborhood mosque at sunrise, seen from behind, quiet street, soft golden light",
+   "prompt": "two faceless bare-headed men in jackets walking side by side toward a small Ottoman-style mosque with a single dome topped by a golden crescent finial and one slender minaret, no crosses at sunrise, seen from behind, quiet street, soft golden light",
    "sicak": true
   }
  ],
