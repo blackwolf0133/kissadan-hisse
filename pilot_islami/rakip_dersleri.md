@@ -22,6 +22,17 @@
 - Ders 2: Kanca = merak sorusu ya da sarsıcı tek cümle; kapanış = kaydet + kişisel soru.
 - Ders 3: Karakter/çizim şart değil; sade motion grafik (bizim cairo motorlarımızla yapılabilir) yetiyor.
 
+## @ayetvekainat — 190.559 takipçi, 67 gönderi (12 Ekim'de başladı; ilk 48 saatte 50 bin takipçi)
+- Patlama ilk 3 günde: "Hz. Âdem'in eşinin adını biliyor musunuz?" 70 bin · 13 Ekim videosu 72 bin; sonra 31 Ekim 44 bin.
+  Son 10 günde ivme çok düştü: çoğu paylaşım 130–5 bin beğeni. Yani bu alanda hızlı büyüme var ama içerik
+  tekrara düşünce hızla sönüyor.
+- Format: karakter yok; tipografi + sembolik nesne çizimleri (terazi, kum saati, Kur'an rahlesi), pastel/yıldızlı zemin,
+  TTS erkek sesi, renkli vurgulu senkron altyazı, 80–140 sn.
+- Tutan kanca türleri: (1) "Bildiğini sandığın şey Kur'an'da öyle mi?" bilgi tezadı; (2) herkesin aklındaki itirazla başlayıp
+  ayetle cevap ("…neden haram? Sebep kalktıysa?"); (3) "Kur'an'da öyle bir günah var ki…" çarpıcı tek cümle.
+- Bizim için: "Kur'an'da gerçekte ne yazıyor?" türü bölümler, sadece ayet + meal (Diyanet meali) kaynaklı; fıkıh hükmü
+  (sigara, faizli banka vb.) VERMİYORUZ.
+
 ## Bizim pilotlara yansıması
 - 901–903 "Bir Hadis, Bir Gün" (yüzsüz sinematik çizim + kaynaklı sahih hadis + günlük hayat sahnesi).
 - Öneri: 4. pilot olarak "kaydet, birlikte yap" türünde, çizimsiz motion grafik bir bölüm (ör. sahih kaynaklı bir sabah/akşam duası
