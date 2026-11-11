@@ -26,3 +26,6 @@
 - 901–903 "Bir Hadis, Bir Gün" (yüzsüz sinematik çizim + kaynaklı sahih hadis + günlük hayat sahnesi).
 - Öneri: 4. pilot olarak "kaydet, birlikte yap" türünde, çizimsiz motion grafik bir bölüm (ör. sahih kaynaklı bir sabah/akşam duası
   ya da kısa bir sure ezberi; okunuş + anlam + sayaç). Arapça okunuşun doğru seslendirildiği mutlaka kontrol edilmeli.
+
+## Kararlar
+- 11 Kasım: Ses **Iapetus** (kullanıcının seçimi; 901'de okunuş kontrolü %99). Orus ve Alnilam da denendi.

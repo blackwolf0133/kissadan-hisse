@@ -10,7 +10,7 @@ on:
         default: "901"
       sesler:
         description: "Gemini sesleri (JSON liste)"
-        default: '["Orus"]'
+        default: '["Iapetus"]'
       ciz:
         description: "Sahneleri yeniden çiz (false = mevcut çizimleri kullan, sadece ses dene)"
         type: boolean
