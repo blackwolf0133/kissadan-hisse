@@ -120,7 +120,16 @@ jobs:
           python-version: "3.11"
       - name: Kurulum
         run: |
-          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg espeak-ng
+          AOPT="-o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 -o Acquire::Retries=3 -o DPkg::Lock::Timeout=60"
+          # ffmpeg: Ubuntu apt sunucuları yavaşlayınca takılmamak için önce GitHub'dan hazır derleme
+          if ! command -v ffmpeg >/dev/null; then
+            for i in 1 2 3; do curl -fsSL --max-time 240 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz -o /tmp/ff.tar.xz && break; sleep 5; done
+            tar xJf /tmp/ff.tar.xz -C /tmp 2>/dev/null && sudo cp /tmp/ffmpeg-master-latest-linux64-gpl/bin/ff* /usr/local/bin/ || true
+          fi
+          sudo timeout 300 apt-get update -q $AOPT || echo "::warning::apt update yavaş/başarısız"
+          sudo timeout 180 apt-get install -y -q --no-install-recommends $AOPT espeak-ng || echo "::warning::espeak-ng kurulamadı (yedek ses yok)"
+          command -v ffmpeg >/dev/null || sudo timeout 600 apt-get install -y -q --no-install-recommends $AOPT ffmpeg || true
+          command -v ffmpeg >/dev/null || { echo "::error::ffmpeg kurulamadı"; exit 1; }
           pip install -r requirements.txt
           pip install faster-whisper || echo "::warning::faster-whisper kurulamadı, okunuş kontrolü atlanacak"
           pip install transformers torch --extra-index-url https://download.pytorch.org/whl/cpu || echo "::warning::derinlik modeli kurulamadı"
