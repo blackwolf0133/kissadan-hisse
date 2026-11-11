@@ -1,0 +1,50 @@
+{
+ "id": "005",
+ "slug": "kazan_dogurdu",
+ "title": "Kazan Doğurdu",
+ "seed": 5523,
+ "characters": {
+  "HOCA": "an old Turkish man with a round friendly face, a long white beard and a large white turban",
+  "KOMSU": "a plump middle-aged Turkish neighbor with a thick black mustache, a red fez and a striped yellow vest"
+ },
+ "scenes": [
+  {
+   "text": "Komşusu, kazanının doğurduğuna hemen inandı. Ama öldüğüne bir türlü inanmadı.",
+   "prompt": "{KOMSU} standing in the doorway of his village house grinning greedily, a big shiny copper cauldron with a tiny copper pot inside it at his feet, {HOCA} smiling innocently beside it",
+   "yer": "Nasreddin Hoca"
+  },
+  {
+   "text": "Nasreddin Hoca bir gün komşusundan büyük bir bakır kazan ödünç almış.",
+   "prompt": "{HOCA} walking down a cobbled village street with a big copper cauldron strapped on his back, {KOMSU} waving from his doorway in the distance"
+  },
+  {
+   "text": "Geri verirken içine küçük bir tencere koymuş. Müjde komşu, kazanın doğurdu!",
+   "prompt": "close-up of a big copper cauldron on a stone doorstep with a tiny shiny copper pot sitting inside it, in the background {HOCA} and {KOMSU} looking at it"
+  },
+  {
+   "text": "Komşu kıs kıs gülmüş ama hiç itiraz etmemiş. İkisini de alıp içeri girmiş.",
+   "prompt": "{KOMSU} hurrying happily into his house, wide shot from behind, the copper cauldron and the tiny pot on the threshold, {HOCA} watching with a sly smile"
+  },
+  {
+   "text": "Birkaç gün sonra Hoca kazanı yine istemiş. Bu sefer geri getirmemiş.",
+   "prompt": "{HOCA} sitting calmly on a cushion in his small cozy home, the big copper cauldron beside him, evening light from a small window"
+  },
+  {
+   "text": "Komşu kapıya dayanınca Hoca üzgünce demiş: Başın sağ olsun, kazanın öldü.",
+   "prompt": "{KOMSU} standing angrily at {HOCA}'s door with his arms crossed, {HOCA} with an exaggerated sad face, village street at dusk"
+  },
+  {
+   "text": "Kârına inanan, zararına da inanmak zorundadır.",
+   "prompt": "{HOCA} walking away along a quiet village road at sunset with a gentle smile, the big copper cauldron left by a door in the background"
+  }
+ ],
+ "hisse": "Kârına inanan, zararına da inanmak zorundadır.",
+ "caption": "Kazan ölür mü? 🍲\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#nasreddinhoca",
+  "#kazandoğurdu",
+  "#kıssadanhisse",
+  "#fıkra",
+  "#kıssadanhissetr"
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "id": "010",
+ "slug": "gole_maya",
+ "title": "Göle Maya",
+ "seed": 10079,
+ "characters": {
+  "HOCA": "an old Turkish man with a round friendly face, a long white beard and a large white turban",
+  "KOYLU": "a skinny young villager with a flat brown cap, a blue vest and baggy grey trousers"
+ },
+ "scenes": [
+  {
+   "text": "Herkes ona deli dedi. O ise sadece iki kelime söyledi: Ya tutarsa!",
+   "prompt": "{HOCA} kneeling at the edge of a big calm lake with a large bowl of white yogurt beside him, a few villagers laughing far in the distance",
+   "yer": "Nasreddin Hoca"
+  },
+  {
+   "text": "Bir sabah köylüler, Nasreddin Hoca'yı göl kenarında diz çökmüş, suya dalmış görmüşler.",
+   "prompt": "wide view of a misty lake shore at dawn, {HOCA} small in the distance kneeling at the water's edge, reeds"
+  },
+  {
+   "text": "Yanında kocaman bir kâse yoğurt varmış. Azar azar göle katıyormuş.",
+   "prompt": "close-up of a large clay bowl of white yogurt tipped toward the lake, white swirls spreading in the clear water, no hands visible"
+  },
+  {
+   "text": "Bir köylü sormuş: Hocam ne yapıyorsun? Göle maya çalıyorum, demiş Hoca.",
+   "prompt": "{KOYLU} standing next to {HOCA} at the lake shore with a puzzled face and tilted head"
+  },
+  {
+   "text": "Köylü kahkahalarla gülmüş. Hocam, hiç koca bir göl maya tutar mı?",
+   "prompt": "{KOYLU} bent over laughing loudly on the lake shore, {HOCA} calm beside him"
+  },
+  {
+   "text": "Hoca gözünü gölden hiç ayırmadan sakin sakin cevap vermiş: Ya tutarsa!",
+   "prompt": "{HOCA} gazing hopefully at the sparkling lake surface with a calm determined smile, morning sunlight"
+  },
+  {
+   "text": "Hiç denememek, denemekten daha büyük kayıptır.",
+   "prompt": "a peaceful lake at sunset with an empty clay bowl on the shore and gentle white ripples on the water, nobody around"
+  }
+ ],
+ "hisse": "Hiç denememek, denemekten daha büyük kayıptır.",
+ "caption": "Göl maya tutar mı? 🥣\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#nasreddinhoca",
+  "#yatutarsa",
+  "#kıssadanhisse",
+  "#fıkra",
+  "#kıssadanhissetr"
+ ]
+}

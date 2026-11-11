@@ -1,0 +1,50 @@
+{
+ "id": "004",
+ "slug": "karga_ve_testi",
+ "title": "Karga ve Testi",
+ "seed": 4417,
+ "characters": {
+  "KARGA": "a glossy black crow with a dark grey beak and bright clever eyes, plain natural bird, no clothes",
+  "TESTI": "a tall old terracotta water jug with a narrow neck and a chipped rim"
+ },
+ "scenes": [
+  {
+   "text": "Su tam gözünün önündeydi. Ama karga ona ulaşamazsa, bu sıcak onu bitirecekti.",
+   "prompt": "{KARGA} perched on the rim of {TESTI} under a blazing sun, peering down into it, cracked dry earth all around, heat haze, no people",
+   "yer": "Ezop Masalları"
+  },
+  {
+   "text": "Günlerdir yağmur yağmamış. Dereler kurumuş, kuyular boşalmış.",
+   "prompt": "{KARGA} flying low over a dried-up cracked riverbed with withered trees, hot orange sky, no people"
+  },
+  {
+   "text": "Sonunda bir bahçede eski bir testi bulmuş. Dibinde biraz su varmış ama gagası yetişmemiş.",
+   "prompt": "view looking down inside {TESTI}, a small shiny puddle of water far below at the bottom, the black beak of {KARGA} at the narrow opening above, no people"
+  },
+  {
+   "text": "Testiyi devirmeye çalışmış, kıpırdatamamış. Bırakıp gitmeyi bile düşünmüş.",
+   "prompt": "{KARGA} pushing against the heavy {TESTI} with its shoulder, the jug not moving, the crow tired with drooping wings, garden wall behind, no people"
+  },
+  {
+   "text": "Sonra yerdeki çakıl taşlarına bakmış. Birini gagasıyla alıp testiye atmış. Sonra bir tane daha.",
+   "prompt": "{KARGA} holding a small round pebble in its beak above the opening of {TESTI}, a little pile of pebbles on the ground beside it, no people"
+  },
+  {
+   "text": "Her taşla su biraz daha yükselmiş. Ve sonunda gagasının ucuna kadar gelmiş.",
+   "prompt": "{KARGA} happily drinking water that now reaches the brim of {TESTI}, sparkling water drops, soft afternoon light, no people"
+  },
+  {
+   "text": "Gücün yetmediği yerde, sabırla atılan küçük taşlar yeter.",
+   "prompt": "{KARGA} sitting contentedly on the rim of {TESTI} at sunset, a few pebbles on the ground, calm warm sky, no people"
+  }
+ ],
+ "hisse": "Gücün yetmediği yerde, sabırla atılan küçük taşlar yeter.",
+ "caption": "Sen olsan ne yapardın? 🪶\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#ezop",
+  "#karga",
+  "#kıssadanhisse",
+  "#masal",
+  "#kıssadanhissetr"
+ ]
+}

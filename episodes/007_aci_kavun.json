@@ -1,0 +1,50 @@
+{
+ "id": "007",
+ "slug": "aci_kavun",
+ "title": "Acı Kavun",
+ "seed": 7749,
+ "characters": {
+  "LOKMAN": "a wise humble man with kind eyes, a short grey beard, a simple cream-colored robe and a plain brown head wrap",
+  "EFENDI": "a wealthy friendly middle-aged man with a neat black beard, a dark green kaftan and a small white turban"
+ },
+ "scenes": [
+  {
+   "text": "Kavun zehir gibi acıydı. Lokman ise son dilimine kadar gülümseyerek yedi.",
+   "prompt": "close-up of melon slices on a copper tray, in the background {LOKMAN} sitting on a cushion with a calm warm smile, sunny courtyard",
+   "yer": "Lokman Hekim"
+  },
+  {
+   "text": "Lokman'ın efendisi onu çok severmiş. Ne bulsa önce ona ikram edermiş.",
+   "prompt": "{EFENDI} and {LOKMAN} sitting together in a garden courtyard with a fountain, a copper tray of fruit between them, friendly mood"
+  },
+  {
+   "text": "Bir gün bir kavun kesmiş. Dilim dilim Lokman'a vermiş, o da hepsini keyifle yemiş.",
+   "prompt": "a cut yellow melon on a copper tray between {EFENDI} and {LOKMAN} on cushions, {LOKMAN} looking pleased, wide shot of the courtyard"
+  },
+  {
+   "text": "Son dilimi efendisi tatmış. Yüzü buruşmuş: Bu kavun zehir gibi acı!",
+   "prompt": "{EFENDI} grimacing with a very sour face and squeezed eyes, {LOKMAN} looking at him gently, courtyard"
+  },
+  {
+   "text": "Nasıl yedin bunu? Neden bir şey demedin?",
+   "prompt": "{EFENDI} turning to {LOKMAN} with raised eyebrows and an astonished questioning face, medium shot"
+  },
+  {
+   "text": "Lokman demiş ki: Bu elden nice tatlı yedim. Bir kez acı geldi diye yüz mü ekşiteyim?",
+   "prompt": "{LOKMAN} smiling warmly, {EFENDI} looking deeply touched, golden sunset light in the courtyard"
+  },
+  {
+   "text": "Bin tatlı yediğin elin tek acısına yüz ekşitme.",
+   "prompt": "an empty copper tray with a single melon rind on it in a quiet courtyard at sunset, fountain softly flowing, nobody around"
+  }
+ ],
+ "hisse": "Bin tatlı yediğin elin tek acısına yüz ekşitme.",
+ "caption": "Acıyı neden yuttu? 🍈\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#lokmanhekim",
+  "#vefa",
+  "#kıssadanhisse",
+  "#hikaye",
+  "#kıssadanhissetr"
+ ]
+}

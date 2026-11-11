@@ -1,0 +1,50 @@
+{
+ "id": "008",
+ "slug": "aslan_ve_fare",
+ "title": "Aslan ve Fare",
+ "seed": 8857,
+ "characters": {
+  "ASLAN": "a large golden lion with a thick brown mane, plain natural animal, no clothes, no crown",
+  "FARE": "a tiny grey mouse with big round pink ears and a long thin tail, plain natural animal, no clothes"
+ },
+ "scenes": [
+  {
+   "text": "Ormanın kralı bir ağa düştü. Onu kurtaran, alay ettiği küçücük bir fareydi.",
+   "prompt": "{ASLAN} lying trapped under a thick rope net on the forest floor, {FARE} standing on top of the net near his face, sunbeams through trees, no people",
+   "yer": "Ezop Masalları"
+  },
+  {
+   "text": "Bir gün aslan uyurken, küçük bir fare yanlışlıkla burnunun üstünden geçmiş.",
+   "prompt": "{ASLAN} sleeping in the shade of a big acacia tree, {FARE} scurrying across his nose, no people"
+  },
+  {
+   "text": "Aslan uyanıp fareyi yakalamış. Fare yalvarmış: Bırak beni, bir gün sana yardım ederim.",
+   "prompt": "{ASLAN} awake looking down at {FARE} sitting between his big front paws, the mouse pleading with clasped paws, no people"
+  },
+  {
+   "text": "Aslan kahkahayı basmış. Senin gibi bir fare bana ne yardım edebilir? Ama yine de bırakmış.",
+   "prompt": "{ASLAN} laughing with his head thrown back, {FARE} running away free through the grass, no people"
+  },
+  {
+   "text": "Günler sonra aslan bir avcı ağına düşmüş. Ne kadar kükrese de kurtulamamış.",
+   "prompt": "{ASLAN} roaring helplessly under a thick rope net in the forest, leaves flying, no people"
+  },
+  {
+   "text": "Kükremeyi duyan fare koşup gelmiş. İpleri tek tek kemirmiş ve aslan serbest kalmış.",
+   "prompt": "{FARE} gnawing through a thick rope of the net with its teeth, {ASLAN} watching hopefully, a few cut rope ends, no people"
+  },
+  {
+   "text": "Kimseyi küçük görme. Bir gün seni kurtaracak olan o olabilir.",
+   "prompt": "{ASLAN} lying peacefully in the golden grass at sunset with {FARE} sitting on his paw, both looking at the horizon, no people"
+  }
+ ],
+ "hisse": "Kimseyi küçük görme; seni kurtaracak olan o olabilir.",
+ "caption": "Küçük dediğin kim? 🐭\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#ezop",
+  "#aslanvefare",
+  "#kıssadanhisse",
+  "#masal",
+  "#kıssadanhissetr"
+ ]
+}

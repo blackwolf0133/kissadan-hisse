@@ -1,0 +1,50 @@
+{
+ "id": "009",
+ "slug": "bu_da_gecer",
+ "title": "Bu Da Geçer",
+ "seed": 9967,
+ "characters": {
+  "PADISAH": "a proud sultan with a black beard, a tall white turban with a red jewel and a purple kaftan",
+  "DERVIS": "a calm thin old dervish with a long white beard, a tall brown felt hat and a patched brown cloak"
+ },
+ "scenes": [
+  {
+   "text": "Padişah tek bir yüzük istedi. Mutluyken bakınca hüzünlenecek, üzgünken bakınca sevinecekti.",
+   "prompt": "{PADISAH} sitting on a golden throne in a grand palace hall, leaning forward curiously toward a small velvet cushion on a low table",
+   "yer": "Padişah ile Derviş"
+  },
+  {
+   "text": "Saraydaki bütün kuyumcular çaresiz kalmış. Böyle bir yüzüğü kimse yapamamış.",
+   "prompt": "worried jewelers in traditional Ottoman clothes bowing with downcast faces before {PADISAH} in a palace hall"
+  },
+  {
+   "text": "Sonunda yaşlı bir derviş saraya gelmiş ve sade bir yüzük getirmiş.",
+   "prompt": "{DERVIS} standing calmly before {PADISAH} in the palace hall, a plain silver ring resting on a velvet cushion on a low table between them"
+  },
+  {
+   "text": "Yüzüğün içine kısacık bir söz kazınmış: Bu da geçer.",
+   "prompt": "close-up of a plain silver ring on a red velvet cushion, decorative engraved swirl pattern, soft glow, no letters, no writing"
+  },
+  {
+   "text": "Padişah zafer günlerinde bakmış, kibri yatışmış. Zor günlerinde bakmış, umudu yeşermiş.",
+   "prompt": "{PADISAH} sitting alone by an arched palace window at night, calm thoughtful face, moonlight over the city"
+  },
+  {
+   "text": "Derviş gülümseyerek demiş: Sultanım, ne sevinç kalıcıdır ne keder.",
+   "prompt": "{DERVIS} smiling and walking down the palace steps at sunrise, {PADISAH} watching him from the top of the steps"
+  },
+  {
+   "text": "İyi gün de kötü gün de geçer; ikisine de kapılma.",
+   "prompt": "a wide calm landscape with the sun rising over palace domes and hills, a small silver ring glinting on a stone ledge, nobody around"
+  }
+ ],
+ "hisse": "İyi gün de kötü gün de geçer; ikisine de kapılma.",
+ "caption": "Her derde tek söz? 💍\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#budageçer",
+  "#padişah",
+  "#kıssadanhisse",
+  "#hikaye",
+  "#kıssadanhissetr"
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "id": "006",
+ "slug": "tilki_ve_davul",
+ "title": "Tilki ve Davul",
+ "seed": 6631,
+ "characters": {
+  "TILKI": "a slim hungry red fox with a bushy white-tipped tail and amber eyes, plain natural animal, no clothes",
+  "DAVUL": "a big old wooden drum with a pale stretched skin, hanging by a rope from a low tree branch"
+ },
+ "scenes": [
+  {
+   "text": "Ormandaki en korkunç ses, aslında içi bomboş bir şeyden geliyordu.",
+   "prompt": "{TILKI} crouching behind ferns with flattened ears, staring at a dark windy forest, sound ripples in the air between the trees, no people",
+   "yer": "Kelile ve Dimne"
+  },
+  {
+   "text": "Aç bir tilki ormanda dolaşırken, derinden gelen bir gümbürtü duymuş.",
+   "prompt": "{TILKI} walking through an autumn forest, suddenly freezing with ears up and tail stiff, startled, no people"
+  },
+  {
+   "text": "Önce korkmuş. Sonra düşünmüş: Sesi bu kadar büyükse, eti de bol olmalı.",
+   "prompt": "{TILKI} peeking around a thick tree trunk licking its lips with greedy eyes, no people"
+  },
+  {
+   "text": "Sesin peşine düşmüş ve bir ağaca asılı eski bir davul bulmuş. Rüzgâr esince dallar davula vuruyormuş.",
+   "prompt": "{DAVUL} hanging from a tree branch, a thin twig swaying in the wind and tapping on its skin, {TILKI} looking up at it amazed, falling leaves, no people"
+  },
+  {
+   "text": "Tilki bütün gücüyle sıçramış ve davulun derisini yırtmış.",
+   "prompt": "{TILKI} leaping high toward {DAVUL} with its mouth open, cartoon motion lines, no people"
+  },
+  {
+   "text": "İçine bakmış. Ne et var ne yağ. Sadece kocaman bir boşluk.",
+   "prompt": "{TILKI} with its head peeking into the torn opening of {DAVUL}, the drum completely empty inside, the fox's face disappointed, no people"
+  },
+  {
+   "text": "En çok gürültü yapan, çoğu zaman en boş olandır.",
+   "prompt": "{TILKI} walking away into the misty forest with its tail down, the torn {DAVUL} swinging gently on the branch behind, no people"
+  }
+ ],
+ "hisse": "En çok gürültü yapan, çoğu zaman en boş olandır.",
+ "caption": "En büyük ses kimden? 🦊\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#keliledimne",
+  "#tilki",
+  "#kıssadanhisse",
+  "#masal",
+  "#kıssadanhissetr"
+ ]
+}
