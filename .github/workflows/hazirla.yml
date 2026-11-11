@@ -59,6 +59,7 @@ jobs:
     timeout-minutes: 150
     strategy:
       fail-fast: false
+      max-parallel: 4   # paylaşım işlerine yer kalsın (hesapta aynı anda en fazla 20 iş)
       matrix:
         sahne: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     steps:
