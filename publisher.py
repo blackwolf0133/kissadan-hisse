@@ -212,6 +212,83 @@ def publish_reel(video_path=None, video_url=None, caption="", mode=None,
     return {"media_id": media_id, "permalink": link, "container_id": cid}
 
 
+# ---------------------------------------------------------------------------
+# Hikâye (Story): Reel paylaşıldıktan sonra aynı video hikâyeye de konur (13 Kasım).
+# API sınırı: video hikâye 3-60 sn; daha uzunsa ilk 59 sn kesilip dosyadan yüklenir.
+# Bu adım ASLA paylaşımı bozmamalı: çağıran taraf hataları yakalar.
+
+def _sure(path):
+    import subprocess
+    try:
+        out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                              "-of", "default=nw=1:nk=1", path], capture_output=True, text=True, timeout=60)
+        return float(out.stdout.strip())
+    except Exception:
+        return None
+
+
+def _kirp(path, saniye=59):
+    import subprocess
+    hedef = os.path.splitext(path)[0] + "_hikaye.mp4"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", path, "-t", str(saniye),
+                    "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
+                    "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-movflags", "+faststart", hedef],
+                   check=True, timeout=600)
+    return hedef
+
+
+def publish_story(video_path=None, video_url=None, mode=None, user_id=None, token=None):
+    """Videoyu hikâye olarak paylaşır, {"media_id"} döndürür."""
+    token = token or os.environ["IG_ACCESS_TOKEN"]
+    mode = mode or detect_mode(token)
+    user_id = user_id or resolve_user_id(token, mode)
+    host = _host(mode)
+    base = f"https://{host}/{API_VERSION}"
+
+    yerel = video_path if (video_path and os.path.exists(video_path)) else None
+    sure = _sure(yerel) if yerel else None
+    if sure is not None and sure > 60:
+        if mode != "facebook":
+            raise PublishError(f"Video {sure:.0f} sn (hikâye en fazla 60 sn) ve bu modda kırpılmış dosya yüklenemiyor")
+        yerel = _kirp(yerel)
+        video_url = None          # kırpılmış dosya doğrudan yüklenir
+        print(f"Hikâye için video {sure:.0f} sn'den 59 sn'ye kırpıldı.")
+
+    params = {"media_type": "STORIES", "access_token": token}
+    if mode == "facebook":
+        params["upload_type"] = "resumable"
+        c = _request("POST", f"{base}/{user_id}/media", params)
+        cid = c["id"]
+        uri = c.get("uri") or f"https://rupload.facebook.com/ig-api-upload/{API_VERSION}/{cid}"
+        ok = False
+        if video_url:
+            try:
+                _request("POST", uri, headers={"Authorization": f"OAuth {token}", "file_url": video_url}, timeout=600)
+                ok = True
+            except PublishError as e:
+                print(f"Hikâye: file_url olmadı, dosyadan deneniyor: {e}")
+        if not ok:
+            if not yerel:
+                raise PublishError("Hikâye için yüklenecek dosya yok")
+            with open(yerel, "rb") as fh:
+                data = fh.read()
+            try:
+                _request("POST", uri, headers={"Authorization": f"OAuth {token}", "offset": "0",
+                                               "file_size": str(len(data)),
+                                               "Content-Type": "application/octet-stream"}, data=data, timeout=600)
+            except PublishError as e:
+                print(f"Hikâye: dosya yüklemesi hata verdi, kapsayıcı kontrol ediliyor: {e}")
+    else:
+        if not video_url:
+            raise PublishError("instagram modunda hikâye için video_url gerekir")
+        params["video_url"] = video_url
+        cid = _request("POST", f"{base}/{user_id}/media", params)["id"]
+
+    _wait_container(host, cid, token, timeout=420)
+    pub = _request("POST", f"{base}/{user_id}/media_publish", {"creation_id": cid, "access_token": token})
+    return {"media_id": pub["id"]}
+
+
 def refresh_token(token=None):
     """Instagram ile giriş tokenının süresini 60 gün uzatır. Yeni tokenı döndürür."""
     token = token or os.environ["IG_ACCESS_TOKEN"]

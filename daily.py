@@ -153,6 +153,21 @@ def paylas_tekrarli(publisher, video_path, video_url, caption, deneme=3):
             time.sleep(bekle)
 
 
+def hikaye_paylas(publisher, video_path, video_url):
+    """Reel'den sonra aynı videoyu hikâyeye koyar. Hata olursa sadece uyarı verir:
+    Reel zaten paylaşıldı ve kaydı yazıldı, hikâye yüzünden iş akışı ASLA başarısız olmamalı."""
+    if os.environ.get("HIKAYE_KAPALI") == "1":
+        print("Hikâye paylaşımı kapalı (HIKAYE_KAPALI=1).")
+        return None
+    try:
+        r = publisher.publish_story(video_path=video_path, video_url=video_url)
+        print(f"Hikâye paylaşıldı: {r['media_id']}")
+        return r["media_id"]
+    except Exception as e:
+        print(f"::warning::Hikâye paylaşılamadı (Reel etkilenmedi): {str(e)[:300]}")
+        return None
+
+
 def cmd_publish(a):
     import publisher
     _, ep = find(a.id)
@@ -162,6 +177,11 @@ def cmd_publish(a):
                          "media_id": res["media_id"], "permalink": res.get("permalink")})
     save_state(st)
     print(f"Paylaşıldı: {ep['title']} -> {res.get('permalink')}")
+    hid = hikaye_paylas(publisher, a.video_path, a.video_url)
+    if hid:
+        st = load_state()
+        st["posted"][-1]["story_id"] = hid
+        save_state(st)
 
 
 def cmd_check(_):
