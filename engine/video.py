@@ -2,6 +2,7 @@
 Sahne = 2D çizgi film tarzı yapay zekâ çizimi (hareketli: parallax + parçacık) + sıcak renk + kelime kelime sarı alt yazı.
 Kullanım: python -m engine.video <bölüm.json> <resim_klasörü> <çıktı.mp4>"""
 import json
+import re
 import math
 import os
 import subprocess
@@ -184,6 +185,80 @@ def _sar(d, metin, f, maxw):
     return satirlar
 
 
+# --------------------------------------------------------------------------
+# 0. saniye kanca yazısı (13 Kasım): sessiz izleyen de ilk karede ne olduğunu anlasın
+# --------------------------------------------------------------------------
+KANCA_SURE, ZOOM_SURE = 3.0, 0.8
+
+
+def kanca_metni(ep):
+    """Bölümde "kanca_yazi" varsa o; yoksa açıklamanın ilk satırı (zaten kanca olarak yazılıyor)."""
+    t = (ep.get("kanca_yazi") or "").strip()
+    if not t:
+        t = ((ep.get("caption") or ep.get("instagram_caption") or "").strip().split("\n") or [""])[0]
+    t = "".join(ch for ch in t if ord(ch) < 0x2190 or ch in "…’‘“”–—").strip()
+    t = " ".join(t.split())
+    if len(t) > 60:                      # uzunsa sadece ilk cümle
+        m = re.match(r"(.+?[.?!…])(\s|$)", t)
+        if m and len(m.group(1)) >= 15:
+            t = m.group(1)
+    w = t.split()
+    if len(w) > 18:
+        t = " ".join(w[:17]) + "…"
+    return t
+
+
+def _kanca_sar(d, metin, f, maxw):
+    satirlar, cur = [], ""
+    for w in metin.split():
+        t = (cur + " " + w).strip()
+        if d.textlength(t, font=f) > maxw and cur:
+            satirlar.append(cur)
+            cur = w
+        else:
+            cur = t
+    if cur:
+        satirlar.append(cur)
+    return satirlar
+
+
+def kanca_layer(text, size=78):
+    if not text:
+        return None
+    d = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    while size > 54:
+        lines = _kanca_sar(d, text, font(size), W - 170)
+        if len(lines) <= 3:
+            break
+        size -= 4
+    f = font(size)
+    lh = int(size * 1.25)
+    h = lh * len(lines) + 70
+    lay = Image.new("RGBA", (W, h), (0, 0, 0, 0))
+    dd = ImageDraw.Draw(lay)
+    bw = max(dd.textlength(ln, font=f) for ln in lines) + 90
+    dd.rounded_rectangle([(W - bw) / 2, 0, (W + bw) / 2, h - 1], 34, fill=(8, 8, 10, 175))
+    y = 35
+    for ln in lines:
+        dd.text(((W - dd.textlength(ln, font=f)) / 2, y), ln, font=f, fill=(255, 255, 255, 255),
+                stroke_width=6, stroke_fill=(10, 8, 6, 255))
+        y += lh
+    return np.asarray(lay, np.float32)
+
+
+def zoom_region(region, t):
+    """İlk 0,8 sn: %14 yakından başlayıp normale inen hızlı zoom (kalıp kırma)."""
+    if t >= ZOOM_SURE:
+        return region
+    k = 1 - (1 - t / ZOOM_SURE) ** 3
+    z = 1.14 - 0.14 * k
+    h, w = region.shape[:2]
+    ch, cw = int(h / z), int(w / z)
+    y0, x0 = (h - ch) // 2, (w - cw) // 2
+    crop = Image.fromarray(region[y0:y0 + ch, x0:x0 + cw].clip(0, 255).astype(np.uint8))
+    return np.asarray(crop.resize((w, h), Image.BILINEAR), np.float32)
+
+
 def end_card(ep, k):
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
@@ -229,6 +304,8 @@ def render_episode(ep_path, img_dir, out):
     print(f"Süre: {total:.1f} sn", flush=True)
 
     hdr = header(ep)
+    klay = kanca_layer(kanca_metni(ep))
+    kbit = max(2.2, min(KANCA_SURE, starts[0] + parts[0][1]))
     emask, vig = edge_mask()
     gr = grains()
     fog = Fog()
@@ -270,6 +347,7 @@ def render_episode(ep_path, img_dir, out):
                 img = img * (1 - fa) + np.array([236, 226, 205], np.float32) * fa
             region = region * (1 - a) + img * a
         region = region * vig + gr[fi % len(gr)]
+        region = zoom_region(region, t)
         frame[IMG_Y:IMG_Y + IMG_H] = frame[IMG_Y:IMG_Y + IMG_H] * (1 - emask) + region * emask
         cur = prepared[idx]
         if cur["tag"] is not None:
@@ -278,11 +356,13 @@ def render_episode(ep_path, img_dir, out):
             sub = frame[IMG_Y + 40:IMG_Y + 40 + th, 40:40 + tw]
             al = cur["tag"][..., 3:4] / 255 * ta
             frame[IMG_Y + 40:IMG_Y + 40 + th, 40:40 + tw] = sub * (1 - al) + cur["tag"][..., :3] * al
-        for ch in cur["caps"]:
+        for ch in ([] if (klay is not None and t < kbit - 0.3) else cur["caps"]):
             if ch[0][1] - 0.05 <= t <= ch[-1][2] + 0.2:
                 hi = max([i for i, (_, s0, _) in enumerate(ch) if s0 <= t] or [0])
                 paste(frame, caption_layer(ch, hi), CAP_Y)
                 break
+        if klay is not None and t < kbit:
+            paste(frame, klay, IMG_Y + int(IMG_H * 0.36), min(1.0, (kbit - t) / 0.3))
         ff.stdin.write(frame.clip(0, 255).astype(np.uint8).tobytes())
         if fi % 300 == 0:
             print(f"  kare {fi}/{n}", flush=True)
