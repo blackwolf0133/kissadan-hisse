@@ -75,15 +75,23 @@ def _wait_container(host, container_id, token, timeout=900):
     t0 = time.time()
     last = None
     while time.time() - t0 < timeout:
-        info = _request("GET", f"https://{host}/{API_VERSION}/{container_id}",
-                        {"fields": "status_code,status", "access_token": token})
+        try:
+            info = _request("GET", f"https://{host}/{API_VERSION}/{container_id}",
+                            {"fields": "status_code,status", "access_token": token})
+        except PublishError as e:
+            # 14 Kasım: çok sık sorgu -> Meta "(#4) Application request limit reached" (geçici). Bekle, devam et.
+            if "request limit" in str(e) or '"code":4' in str(e) or '"code":17' in str(e):
+                print("Meta istek sınırı: 90 sn bekleniyor...", flush=True)
+                time.sleep(90)
+                continue
+            raise
         last = info
         code = info.get("status_code")
         if code == "FINISHED":
             return info
         if code in ("ERROR", "EXPIRED"):
             raise PublishError(f"Instagram videoyu işleyemedi: {info}")
-        time.sleep(10)
+        time.sleep(20)
     raise PublishError(f"Video işleme zaman aşımı. Son durum: {last}")
 
 
