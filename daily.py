@@ -138,23 +138,54 @@ def cmd_caption(a):
 
 
 
-def paylas_tekrarli(publisher, video_path, video_url, caption, deneme=3):
-    """Meta videoyu arada bir işleyemiyor (ProcessingFailedError). Hata yayınlamadan ÖNCEKİ aşamadaysa
-    1-2 dk bekleyip YENİ bir yükleme kaydıyla tekrar dener; 2. denemede videoyu doğrudan yükler.
+def guvenli_kodla(video_path):
+    """14 Kasım: Meta bazen 'Video Transcoding Error' / 2207082 verip videoyu hiç işleyemiyor.
+    Videoyu Instagram'ın en sorunsuz kabul ettiği biçime yeniden kodlar (H.264 Main, sabit 30 fps,
+    AAC 48 kHz stereo, faststart). ffmpeg yoksa ya da hata olursa None döner."""
+    import shutil, subprocess
+    if not video_path or not os.path.exists(video_path) or not shutil.which("ffmpeg"):
+        return None
+    out = os.path.splitext(video_path)[0] + "_guvenli.mp4"
+    cmd = ["ffmpeg", "-y", "-v", "error", "-i", video_path,
+           "-c:v", "libx264", "-profile:v", "main", "-level", "4.1", "-pix_fmt", "yuv420p",
+           "-preset", "veryfast", "-b:v", "3500k", "-maxrate", "4500k", "-bufsize", "9000k",
+           "-r", "30", "-g", "60", "-bf", "0", "-vf", "scale=1080:1920:flags=lanczos,setsar=1",
+           "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-ac", "2",
+           "-movflags", "+faststart", out]
+    try:
+        subprocess.run(cmd, check=True, timeout=600)
+        print(f"Video güvenli biçimde yeniden kodlandı: {out}", flush=True)
+        return out
+    except Exception as e:
+        print(f"::warning::Yeniden kodlama olmadı: {e}", flush=True)
+        return None
+
+
+def paylas_tekrarli(publisher, video_path, video_url, caption, deneme=4):
+    """Meta videoyu arada bir işleyemiyor (ProcessingFailedError / Transcoding Error / 2207082).
+    Hata yayınlamadan ÖNCEKİ aşamadaysa yeni bir yükleme kaydıyla tekrar dener:
+    1. deneme: adresten, 2. deneme: dosyadan, 3-4. deneme: yeniden kodlanmış dosyadan.
     media_publish aşamasındaki hatalar tekrar denenmez (çift paylaşım olmasın)."""
     import time
+    guvenli = None
     for n in range(deneme):
-        url = video_url if (n != 1 or not video_path) else None
+        path, url = video_path, video_url
+        if n == 1 and video_path:
+            url = None
+        elif n >= 2:
+            if guvenli is None:
+                guvenli = guvenli_kodla(video_path) or ""
+            if guvenli:
+                path, url = guvenli, None
         try:
-            return publisher.publish_reel(video_path=video_path, video_url=url, caption=caption)
+            return publisher.publish_reel(video_path=path, video_url=url, caption=caption)
         except publisher.PublishError as e:
             if "media_publish" in str(e) or n == deneme - 1:
                 raise
-            bekle = 60 * (n + 1)
+            bekle = 60 * min(n + 1, 2)
             print(f"::warning::Paylaşım denemesi {n + 1} olmadı, {bekle} sn sonra yeni kayıtla tekrar: {str(e)[:200]}",
                   flush=True)
             time.sleep(bekle)
-
 
 def hikaye_paylas(publisher, video_path, video_url):
     """Reel'den sonra aynı videoyu hikâyeye koyar. Hata olursa sadece uyarı verir:
