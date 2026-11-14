@@ -16,6 +16,7 @@ import datetime as dt
 import saat_kapisi
 import glob
 import json
+import re
 import os
 import sys
 
@@ -158,22 +159,49 @@ def guvenli_kodla(video_path):
         return None
 
 
+def guvenli_yukle(path, video_url):
+    """Yeniden kodlanmış videoyu aynı GitHub sürümüne koyar, herkese açık adresini döndürür (olmazsa None).
+    Meta en güvenilir şekilde videoyu adresten çekiyor; doğrudan dosya yükleme bu hesaplarda sık 400 veriyor."""
+    import subprocess, time
+    m = re.search(r"/releases/download/([^/]+)/([^/?]+)$", video_url or "")
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    if not (m and repo and os.environ.get("GH_TOKEN") and path):
+        return None
+    tag, ad = m.group(1), os.path.splitext(m.group(2))[0] + "_g.mp4"
+    hedef = os.path.join(os.path.dirname(path) or ".", ad)
+    try:
+        if os.path.abspath(hedef) != os.path.abspath(path):
+            import shutil
+            shutil.copy(path, hedef)
+        subprocess.run(["gh", "release", "upload", tag, hedef, "--clobber", "--repo", repo], check=True, timeout=300)
+        url = video_url.rsplit("/", 1)[0] + "/" + ad
+        print(f"Yeniden kodlanmış video yüklendi: {url}", flush=True)
+        time.sleep(20)
+        return url
+    except Exception as e:
+        print(f"::warning::Yeniden kodlanmış video sürüme konamadı: {e}", flush=True)
+        return None
+
+
 def paylas_tekrarli(publisher, video_path, video_url, caption, deneme=4):
     """Meta videoyu arada bir işleyemiyor (ProcessingFailedError / Transcoding Error / 2207082).
     Hata yayınlamadan ÖNCEKİ aşamadaysa yeni bir yükleme kaydıyla tekrar dener:
-    1. deneme: adresten, 2. deneme: dosyadan, 3-4. deneme: yeniden kodlanmış dosyadan.
-    media_publish aşamasındaki hatalar tekrar denenmez (çift paylaşım olmasın)."""
+    1. deneme: asıl video adresten; sonra Instagram'ın en sorunsuz kabul ettiği biçime yeniden kodlanmış video
+    (önce adresten, olmazsa dosyadan). media_publish aşamasındaki hatalar tekrar denenmez (çift paylaşım olmasın)."""
     import time
-    guvenli = None
+    guvenli, g_url = None, None
     for n in range(deneme):
         path, url = video_path, video_url
-        if n == 1 and video_path:
-            url = None
-        elif n >= 2:
+        if n >= 1:
             if guvenli is None:
                 guvenli = guvenli_kodla(video_path) or ""
+                if guvenli:
+                    g_url = guvenli_yukle(guvenli, video_url)
             if guvenli:
-                path, url = guvenli, None
+                path = guvenli
+                url = g_url if (g_url and n != 2) else None
+            elif n == 1:
+                url = None
         try:
             return publisher.publish_reel(video_path=path, video_url=url, caption=caption)
         except publisher.PublishError as e:

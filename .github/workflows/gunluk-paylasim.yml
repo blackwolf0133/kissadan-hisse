@@ -71,6 +71,7 @@ jobs:
       - name: Instagram'a paylaş
         if: steps.sec.outputs.id != ''
         env:
+          GH_TOKEN: ${{ github.token }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_MODE: ${{ vars.IG_MODE }}
