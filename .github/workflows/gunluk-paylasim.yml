@@ -3,7 +3,8 @@ name: Günlük paylaşım
 
 on:
   schedule:
-    - cron: "22 18 * * *"    # 21:22 Türkiye (paylaşım ~21:30; yedek: Claude alarmı 21:26)
+    # 14 Kasım: her 15 dk kısa kontrol; saat_kapisi.py vakit geldiyse paylaştırır (kanal/slotlar.txt)
+    - cron: "4,19,34,49 * * * *"
   workflow_dispatch:
     inputs:
       zorla:
@@ -20,7 +21,21 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  kapi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      git: ${{ steps.k.outputs.git }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: k
+        env:
+          FORCE: ${{ inputs.zorla && '1' || '' }}
+        run: python3 saat_kapisi.py
+
   paylas:
+    needs: kapi
+    if: needs.kapi.outputs.git == '1'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:

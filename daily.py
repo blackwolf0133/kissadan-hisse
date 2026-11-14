@@ -13,6 +13,7 @@ Komutlar:
 """
 import argparse
 import datetime as dt
+import saat_kapisi
 import glob
 import json
 import os
@@ -103,17 +104,13 @@ def cmd_pick_prepare(_):
 
 
 def cmd_pick_publish(_):
-    hour_tr = (dt.datetime.utcnow() + dt.timedelta(hours=3)).hour
-    if os.environ.get("GITHUB_EVENT_NAME") == "schedule" and not (20 <= hour_tr < 24):
-        print(f"Zamanlayıcı geç tetiklendi (TR saat {hour_tr}), gece paylaşımı yapılmıyor.")
-        set_output("id", "")
-        return
     if os.environ.get("FORCE") != "1" and not os.path.exists(os.path.join(ROOT, "assets", "yayinda")):
         print("Kanal henüz yayında değil (assets/yayinda yok).")
         set_output("id", "")
         return
-    if os.environ.get("FORCE") != "1" and any(p.get("date") == today_tr() for p in load_state()["posted"]):
-        print(f"Bugün ({today_tr()}) zaten paylaşım yapıldı.")
+    _git, _slot, _neden = saat_kapisi.karar()
+    if not _git:
+        print(_neden)
         set_output("id", "")
         return
     ready = ready_ids()
@@ -219,7 +216,7 @@ def cmd_publish(a):
     _, ep = find(a.id)
     res = paylas_tekrarli(publisher, a.video_path, a.video_url, caption(ep))
     st = load_state()
-    st["posted"].append({"id": ep["id"], "title": ep["title"], "date": today_tr(),
+    st["posted"].append({"id": ep["id"], "title": ep["title"], "date": today_tr(), "slot": saat_kapisi.gecerli_slot()[0] or "",
                          "media_id": res["media_id"], "permalink": res.get("permalink")})
     save_state(st)
     print(f"Paylaşıldı: {ep['title']} -> {res.get('permalink')}")
