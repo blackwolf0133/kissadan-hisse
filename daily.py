@@ -192,7 +192,9 @@ def paylas_tekrarli(publisher, video_path, video_url, caption, deneme=4):
     guvenli, g_url = None, None
     for n in range(deneme):
         path, url = video_path, video_url
-        if n >= 1:
+        # 14 Kasım: Kayıp 006 asıl haliyle 3 kez reddedildi, yeniden kodlanmış hali adresten hemen geçti.
+        # Bu yüzden ilk deneme de yeniden kodlanmış videoyla; 2. deneme asıl video.
+        if n != 1:
             if guvenli is None:
                 guvenli = guvenli_kodla(video_path) or ""
                 if guvenli:
@@ -200,8 +202,6 @@ def paylas_tekrarli(publisher, video_path, video_url, caption, deneme=4):
             if guvenli:
                 path = guvenli
                 url = g_url if (g_url and n != 2) else None
-            elif n == 1:
-                url = None
         try:
             return publisher.publish_reel(video_path=path, video_url=url, caption=caption)
         except publisher.PublishError as e:
