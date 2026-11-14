@@ -23,6 +23,9 @@ STATE = os.path.join(ROOT, "state", "posted.json")
 AI_NOTE = "Görseller ve ses yapay zekâ ile üretildi. Kıssa, halk anlatılarından kendi sözlerimizle uyarlandı."
 
 
+import time as _t
+_SURECIN_BASI = _t.time()
+
 def today_tr():
     return (dt.datetime.utcnow() + dt.timedelta(hours=3)).date().isoformat()
 
@@ -155,17 +158,29 @@ def paylas_tekrarli(publisher, video_path, video_url, caption, deneme=3):
 
 def hikaye_paylas(publisher, video_path, video_url):
     """Reel'den sonra aynı videoyu hikâyeye koyar. Hata olursa sadece uyarı verir:
-    Reel zaten paylaşıldı ve kaydı yazıldı, hikâye yüzünden iş akışı ASLA başarısız olmamalı."""
+    Reel zaten paylaşıldı ve kaydı yazıldı, hikâye yüzünden iş akışı ASLA başarısız olmamalı.
+    14 Kasım: Instagram bazen videoyu işleyemiyor -> 3 deneme, ama süre bütçeli
+    (iş zaman aşımına uğrarsa paylaşım kaydı yazılmaz ve ertesi gün aynı Reel tekrar paylaşılır!)."""
+    import time
     if os.environ.get("HIKAYE_KAPALI") == "1":
         print("Hikâye paylaşımı kapalı (HIKAYE_KAPALI=1).")
         return None
-    try:
-        r = publisher.publish_story(video_path=video_path, video_url=video_url)
-        print(f"Hikâye paylaşıldı: {r['media_id']}")
-        return r["media_id"]
-    except Exception as e:
-        print(f"::warning::Hikâye paylaşılamadı (Reel etkilenmedi): {str(e)[:300]}")
-        return None
+    bitis = min(_SURECIN_BASI + 30 * 60, time.time() + 14 * 60)
+    for deneme in range(1, 4):
+        kalan = bitis - time.time()
+        if kalan < 150:
+            print(f"::warning::Hikâye için süre kalmadı, atlandı (deneme {deneme}).")
+            return None
+        try:
+            r = publisher.publish_story(video_path=video_path, video_url=video_url,
+                                        bekleme=int(min(420, kalan - 30)))
+            print(f"Hikâye paylaşıldı: {r['media_id']} (deneme {deneme})")
+            return r["media_id"]
+        except Exception as e:
+            print(f"::warning::Hikâye denemesi {deneme} olmadı (Reel etkilenmedi): {str(e)[:300]}")
+            if deneme < 3:
+                time.sleep(min(60 * deneme, max(0, bitis - time.time() - 150)))
+    return None
 
 
 def cmd_publish(a):

@@ -237,7 +237,7 @@ def _kirp(path, saniye=59):
     return hedef
 
 
-def publish_story(video_path=None, video_url=None, mode=None, user_id=None, token=None):
+def publish_story(video_path=None, video_url=None, mode=None, user_id=None, token=None, bekleme=420):
     """Videoyu hikâye olarak paylaşır, {"media_id"} döndürür."""
     token = token or os.environ["IG_ACCESS_TOKEN"]
     mode = mode or detect_mode(token)
@@ -284,7 +284,7 @@ def publish_story(video_path=None, video_url=None, mode=None, user_id=None, toke
         params["video_url"] = video_url
         cid = _request("POST", f"{base}/{user_id}/media", params)["id"]
 
-    _wait_container(host, cid, token, timeout=420)
+    _wait_container(host, cid, token, timeout=bekleme)
     pub = _request("POST", f"{base}/{user_id}/media_publish", {"creation_id": cid, "access_token": token})
     return {"media_id": pub["id"]}
 
