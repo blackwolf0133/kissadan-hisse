@@ -148,7 +148,7 @@ def resolve_user_id(token, mode):
 
 
 def publish_reel(video_path=None, video_url=None, caption="", mode=None,
-                 user_id=None, token=None, share_to_feed=True, trial=None):
+                 user_id=None, token=None, share_to_feed=True, trial=None, klasik=False):
     """Reel paylaşır, {"media_id", "permalink"} döndürür."""
     token = token or os.environ["IG_ACCESS_TOKEN"]
     mode = mode or detect_mode(token)
