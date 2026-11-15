@@ -146,7 +146,7 @@ def guvenli_kodla(video_path):
     out = os.path.splitext(video_path)[0] + "_guvenli.mp4"
     cmd = ["ffmpeg", "-y", "-v", "error", "-i", video_path,
            "-c:v", "libx264", "-profile:v", "main", "-level", "4.1", "-pix_fmt", "yuv420p",
-           "-preset", "veryfast", "-b:v", "3500k", "-maxrate", "4500k", "-bufsize", "9000k",
+           "-preset", "veryfast", "-b:v", "2000k", "-maxrate", "2600k", "-bufsize", "5200k",
            "-r", "30", "-g", "60", "-bf", "0", "-vf", "scale=1080:1920:flags=lanczos,setsar=1",
            "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-ac", "2",
            "-movflags", "+faststart", out]
