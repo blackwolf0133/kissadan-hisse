@@ -203,6 +203,9 @@ def paylas_tekrarli(publisher, video_path, video_url, caption, deneme=4):
                 path = guvenli
                 url = g_url if (g_url and n != 2) else None
         try:
+            if n in (0, 3) and g_url:
+                # Önce klasik yol: yeniden kodlanmış videoyu Meta adresten indirsin (15 Kasım testinde tek çalışan yol)
+                return publisher.publish_reel(video_path=None, video_url=g_url, caption=caption, klasik=True)
             return publisher.publish_reel(video_path=path, video_url=url, caption=caption)
         except publisher.PublishError as e:
             if "media_publish" in str(e) or n == deneme - 1:

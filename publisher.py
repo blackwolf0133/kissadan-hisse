@@ -162,7 +162,13 @@ def publish_reel(video_path=None, video_url=None, caption="", mode=None,
         params["trial_params"] = json.dumps({"graduation_strategy": trial})
 
     upload_error = None
-    if mode == "facebook":
+    if klasik and video_url:
+        # 15 Kasım testi: @kayip.vakalar'da büyük dosyalar rupload ile hiç işlenmedi (2207082), ama
+        # klasik yol (Meta videoyu adresten kendisi indiriyor) aynı videoyu 60 sn'de işledi.
+        params["video_url"] = video_url
+        c = _request("POST", f"{base}/{user_id}/media", params)
+        cid = c["id"]
+    elif mode == "facebook":
         # 1) Yükleme oturumu aç
         params["upload_type"] = "resumable"
         c = _request("POST", f"{base}/{user_id}/media", params)
