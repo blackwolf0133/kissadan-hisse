@@ -1,0 +1,52 @@
+{
+ "id": "012",
+ "slug": "ceviz_diken_ihtiyar",
+ "title": "Ceviz Diken İhtiyar",
+ "seed": 12241,
+ "kanca_yazi": "Göremeyeceği meyve için altın kazandı",
+ "characters": {
+  "PADISAH": "a dignified ancient Persian king with a short grey beard, a tall golden cylindrical hat and a deep blue robe",
+  "IHTIYAR": "a very old thin man with a long white beard, a slightly bent back, a simple white shirt and a faded brown vest"
+ },
+ "scenes": [
+  {
+   "text": "Doksan yaşında bir adam, meyvesini asla göremeyeceği bir ağaç dikiyordu. Padişah ona tam da bu yüzden altın verdi.",
+   "prompt": "{IHTIYAR} kneeling next to a freshly planted tiny sapling in a sunny orchard, {PADISAH} on a white horse in the background looking at him with surprise",
+   "yer": "Kabusname"
+  },
+  {
+   "text": "Padişah Nuşirevan bir gün yolda, bahçesine fidan diken çok yaşlı bir adam görmüş.",
+   "prompt": "{PADISAH} on a white horse with two riders behind him on a country road, seeing {IHTIYAR} far away in a garden beside a tiny sapling, afternoon light"
+  },
+  {
+   "text": "Atını durdurup sormuş: Ceviz yıllar sonra meyve verir. Sen o günü görecek misin?",
+   "prompt": "{PADISAH} sitting on his white horse at a low garden fence, leaning toward {IHTIYAR} with a curious questioning face, a tiny walnut sapling between them"
+  },
+  {
+   "text": "İhtiyar gülümsemiş: Öncekiler dikti, biz yedik. Biz dikelim, sonrakiler yesin.",
+   "prompt": "{IHTIYAR} smiling warmly and nodding toward huge old walnut trees behind him, {PADISAH} listening thoughtfully on his horse"
+  },
+  {
+   "text": "Bu cevap padişahın öyle hoşuna gitmiş ki, ihtiyara bir kese altın verdirmiş.",
+   "prompt": "close-up of a small red velvet pouch full of gold coins lying on the grass next to a tiny walnut sapling, no hands visible"
+  },
+  {
+   "text": "İhtiyar gülmüş: Görüyor musunuz sultanım? Benim ağacım daha bugünden meyve verdi.",
+   "prompt": "{IHTIYAR} laughing happily, {PADISAH} laughing too on his white horse, golden evening light in the orchard"
+  },
+  {
+   "text": "Başkası için ektiğin her iyilik, önce seni doyurur.",
+   "prompt": "a huge old walnut tree full of green walnuts in a sunny orchard, a small new sapling growing beside it, nobody around"
+  }
+ ],
+ "hisse": "Başkası için ektiğin iyilik, önce seni doyurur.",
+ "son_alt": "Bunu dedene ya da ninene gönder",
+ "caption": "Neden altın verdi? 🌳\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#kabusname",
+  "#padişah",
+  "#kıssadanhisse",
+  "#hikaye",
+  "#kıssadanhissetr"
+ ]
+}

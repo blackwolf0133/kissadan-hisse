@@ -1,0 +1,52 @@
+{
+ "id": "011",
+ "slug": "tavsan_ve_ay",
+ "title": "Tavşan ve Ay",
+ "seed": 11131,
+ "kanca_yazi": "Fil sürüsünü tek cümleyle kim kaçırdı?",
+ "characters": {
+  "TAVSAN": "a small light-brown rabbit with long upright ears and a white fluffy tail, plain natural animal, no clothes",
+  "FIL": "a huge grey elephant with long white tusks and big flapping ears, plain natural animal, no clothes"
+ },
+ "scenes": [
+  {
+   "text": "Koca bir fil sürüsü, bir daha dönmemek üzere kaçtı. Onları kaçıran, küçücük bir tavşandı.",
+   "prompt": "{FIL} leading a herd of grey elephants running away across a moonlit grassland, {TAVSAN} sitting calmly on a rock in the foreground watching them leave, no people",
+   "yer": "Kelile ve Dimne"
+  },
+  {
+   "text": "Kuraklık yılında filler, tavşanların yaşadığı berrak bir pınar bulmuş. Her gelişlerinde yuvalar ezilir olmuş.",
+   "prompt": "{FIL} and a herd of elephants drinking noisily from a clear spring surrounded by grass, small rabbit burrows trampled flat near the shore, no people"
+  },
+  {
+   "text": "Tavşanlar korkuyla titrerken, içlerinden biri dolunaylı bir gecede sürünün önüne çıkmış.",
+   "prompt": "{TAVSAN} standing bravely on a rock at night under a big full moon, facing {FIL} who looks down at it, no people"
+  },
+  {
+   "text": "Ben Ay'ın elçisiyim, demiş. Bu pınar Ay'ındır ve siz suyunu bulandırdınız.",
+   "prompt": "{TAVSAN} on a rock lifting its nose toward the full moon reflected in the spring, {FIL} listening with ears spread wide, no people"
+  },
+  {
+   "text": "Fil inanmamış, hortumunu suya uzatmış. Sudaki Ay'ın yansıması titreyip dağılmış.",
+   "prompt": "close-up of the trunk tip of {FIL} touching the water surface of a spring, the reflection of the full moon breaking into trembling ripples, no people"
+  },
+  {
+   "text": "Gördün mü? Ay sana kızdı! Filler o pınara bir daha hiç gelmemiş.",
+   "prompt": "{FIL} and the elephant herd walking away into the night with lowered heads, {TAVSAN} watching from the shore of the moonlit spring, no people"
+  },
+  {
+   "text": "Gücün yetmeyince aklın yeter; akıl, koca bir sürüyü bile durdurur.",
+   "prompt": "{TAVSAN} sitting peacefully beside the calm spring with the full moon reflected perfectly in the still water, other rabbits peeking out of burrows, no people"
+  }
+ ],
+ "hisse": "Gücün yetmeyince aklın yeter.",
+ "son_alt": "Bunu en zeki arkadaşına gönder",
+ "caption": "Tavşan nasıl kazandı? 🐇\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#keliledimne",
+  "#tavşan",
+  "#kıssadanhisse",
+  "#masal",
+  "#kıssadanhissetr"
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "id": "013",
+ "slug": "kopek_ve_golgesi",
+ "title": "Köpek ve Gölgesi",
+ "seed": 13353,
+ "kanca_yazi": "Suya bir baktı, her şeyini kaybetti",
+ "characters": {
+  "KOPEK": "a scruffy medium-sized tan dog with one floppy ear and a white patch on its chest, plain natural animal, no clothes, no collar"
+ },
+ "scenes": [
+  {
+   "text": "Ağzında kocaman bir kemik vardı. Sonra suya bir baktı ve sahip olduğu her şeyi kaybetti.",
+   "prompt": "{KOPEK} standing on a narrow wooden bridge holding a big bone in its mouth, staring down at its own reflection in the stream below, no people",
+   "yer": "Ezop Masalları"
+  },
+  {
+   "text": "Aç bir köpek, pazar yerinde kocaman bir kemik bulmuş. Sevinçle evine koşuyormuş.",
+   "prompt": "{KOPEK} trotting happily down a dusty village road carrying a big bone in its mouth, wagging its tail, no people"
+  },
+  {
+   "text": "Yolu dar bir köprüden geçiyormuş. Aşağıda dere sakin sakin akıyormuş.",
+   "prompt": "wide view of {KOPEK} small on a narrow old wooden bridge over a calm clear stream, green willow trees, no people"
+  },
+  {
+   "text": "Suya bakınca bir köpek görmüş. Onun ağzında da bir kemik varmış, hem de daha büyüğü!",
+   "prompt": "view looking down from a wooden bridge at clear water, the reflection of {KOPEK} with a big bone looking back up, the reflection slightly bigger, no people"
+  },
+  {
+   "text": "O kemiği de kapmak için havlamış. Ağzını açtığı an, kendi kemiği suya düşmüş.",
+   "prompt": "{KOPEK} barking down at the water from the bridge with its mouth wide open, a bone falling toward the stream with a splash, cartoon motion lines, no people"
+  },
+  {
+   "text": "Halkalar dağılınca anlamış: Öteki köpek, kendi gölgesiymiş.",
+   "prompt": "{KOPEK} with drooping ears looking at circular ripples spreading on the water where the bone sank, its sad reflection reappearing, no people"
+  },
+  {
+   "text": "Daha fazlasına havlayan, elindekini de suya düşürür.",
+   "prompt": "{KOPEK} walking away slowly along the riverbank at sunset with nothing in its mouth, tail low, no people"
+  }
+ ],
+ "hisse": "Daha fazlasına havlayan, elindekini de kaybeder.",
+ "son_alt": "Bunu hiç doymayan arkadaşına gönder",
+ "caption": "Gölgesi neyi aldı? 🐕\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#ezop",
+  "#köpek",
+  "#kıssadanhisse",
+  "#masal",
+  "#kıssadanhissetr"
+ ]
+}

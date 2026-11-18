@@ -1,0 +1,52 @@
+{
+ "id": "016",
+ "slug": "tilki_ve_leylek",
+ "title": "Tilki ve Leylek",
+ "seed": 16687,
+ "kanca_yazi": "Davet etti ama tek lokma yedirmedi",
+ "characters": {
+  "TILKI": "a sly orange fox with a thin pointed snout, a bushy tail and narrow green eyes, plain natural animal, no clothes",
+  "LEYLEK": "a tall white stork with black wing tips, long red legs and a very long thin red beak, plain natural bird, no clothes"
+ },
+ "scenes": [
+  {
+   "text": "Tilki, leyleği akşam yemeğine davet etti. Ama misafiri bir lokma bile yiyemedi.",
+   "prompt": "{LEYLEK} standing at a low round table staring sadly at a flat plate of soup, {TILKI} across the table grinning, cozy fox den with tree roots, no people",
+   "yer": "Ezop Masalları"
+  },
+  {
+   "text": "Tilki çorbayı dümdüz, sığ bir tabağa koymuş. Kendisi yalayıp bitirmiş.",
+   "prompt": "close-up of {TILKI} licking soup from a very flat shallow plate on a low table, {LEYLEK} watching, no people"
+  },
+  {
+   "text": "Leyleğin uzun gagası tabağa sadece tık tık vurmuş. Tilki sırıtmış: Beğenmedin mi yoksa?",
+   "prompt": "{LEYLEK} tapping its long thin beak on a flat shallow plate, {TILKI} smirking, no people"
+  },
+  {
+   "text": "Leylek hiç bozuntuya vermemiş. Ertesi gün o da tilkiyi yemeğe çağırmış.",
+   "prompt": "{LEYLEK} standing proudly at the edge of a sunny meadow, bowing its head to invite {TILKI}, no people"
+  },
+  {
+   "text": "Bu sefer yemek, uzun ve dar boyunlu bir testinin içindeymiş.",
+   "prompt": "close-up of a tall narrow-necked clay jug with steam rising from its opening on a low table, {TILKI} looking at it confused, no people"
+  },
+  {
+   "text": "Leylek gagasını daldırıp keyifle yemiş. Tilki ise testinin etrafında aç aç dönmüş.",
+   "prompt": "{LEYLEK} dipping its long beak deep into the narrow jug happily, {TILKI} circling the jug hungrily with drooping ears, no people"
+  },
+  {
+   "text": "Sana nasıl davranılmasını istiyorsan, sen de öyle davran.",
+   "prompt": "{TILKI} and {LEYLEK} sitting together at sunset by a low table with one flat plate and one tall jug, both smiling, no people"
+  }
+ ],
+ "hisse": "Nasıl davranılmak istiyorsan, öyle davran.",
+ "son_alt": "Bunu muzip arkadaşına gönder",
+ "caption": "Tabak mı, testi mi? 🦊\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#ezop",
+  "#tilkiveleylek",
+  "#kıssadanhisse",
+  "#masal",
+  "#kıssadanhissetr"
+ ]
+}

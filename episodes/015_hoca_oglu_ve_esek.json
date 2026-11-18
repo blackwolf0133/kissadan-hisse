@@ -1,0 +1,53 @@
+{
+ "id": "015",
+ "slug": "hoca_oglu_ve_esek",
+ "title": "Hoca, Oğlu ve Eşek",
+ "seed": 15571,
+ "kanca_yazi": "Eşeği neden sırtlarında taşıdılar?",
+ "characters": {
+  "HOCA": "an old Turkish man with a round friendly face, a long white beard and a large white turban",
+  "OGUL": "a cheerful Turkish boy of about ten with a red fez, a white shirt and a green vest",
+  "ESEK": "a small grey donkey with long ears and a dark mane, plain natural animal, no saddle"
+ },
+ "scenes": [
+  {
+   "text": "Sonunda eşeği sırtlarında taşıdılar. Çünkü baba oğul, herkesi memnun etmeye çalışıyorlardı.",
+   "prompt": "{HOCA} and {OGUL} walking on a dusty village road carrying {ESEK} on their shoulders together, villagers in the distance staring with open mouths, comic scene",
+   "yer": "Nasreddin Hoca"
+  },
+  {
+   "text": "Hoca eşeğe binmiş, oğlu yürüyormuş. Köylüler söylenmiş: Yazık, çocuğu yürütüyor!",
+   "prompt": "{HOCA} riding {ESEK} on a village road, {OGUL} walking beside them, two villagers by a stone fountain frowning and whispering"
+  },
+  {
+   "text": "Hoca inmiş, oğlunu bindirmiş. Bu sefer: Utanmaz çocuk, yaşlı babası yürüyor!",
+   "prompt": "{OGUL} riding {ESEK}, {HOCA} walking beside, an old village woman by a wall shaking her head disapprovingly"
+  },
+  {
+   "text": "İkisi birden binmiş. Zavallı hayvan, ikisini birden taşıyor, demişler.",
+   "prompt": "{HOCA} and {OGUL} both riding the small {ESEK} whose ears droop, villagers at a well looking pityingly at the donkey"
+  },
+  {
+   "text": "İkisi de inip yürümüş. Bu sefer kahkahalar: Eşek yanlarında, kendileri yürüyor!",
+   "prompt": "{HOCA}, {OGUL} and {ESEK} walking side by side on the road, young villagers sitting under a tree laughing at them"
+  },
+  {
+   "text": "Hoca gülmüş: Oğlum, el ne derse desin, biz bildiğimizi yapalım.",
+   "prompt": "{HOCA} and {OGUL} laughing together at the edge of the village at sunset, {ESEK} standing calmly between them"
+  },
+  {
+   "text": "Herkesi memnun etmeye çalışan, sonunda yükü kendi sırtında taşır.",
+   "prompt": "{ESEK} grazing peacefully on a hill at sunset, the small figures of {HOCA} and {OGUL} walking home in the distance"
+  }
+ ],
+ "hisse": "Herkesi memnun etmeye çalışan, yükü sırtında taşır.",
+ "son_alt": "Bunu hayır diyemeyen birine gönder",
+ "caption": "Eşek kimin sırtında? 🫏\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#nasreddinhoca",
+  "#eşek",
+  "#kıssadanhisse",
+  "#fıkra",
+  "#kıssadanhissetr"
+ ]
+}

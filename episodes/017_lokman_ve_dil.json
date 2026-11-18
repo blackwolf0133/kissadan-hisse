@@ -1,0 +1,52 @@
+{
+ "id": "017",
+ "slug": "lokman_ve_dil",
+ "title": "Lokman ve Dil",
+ "seed": 17791,
+ "kanca_yazi": "En iyisi de en kötüsü de aynı",
+ "characters": {
+  "LOKMAN": "a wise humble man with kind eyes, a short grey beard, a simple cream-colored robe and a plain brown head wrap",
+  "EFENDI": "a wealthy friendly middle-aged man with a neat black beard, a dark green kaftan and a small white turban"
+ },
+ "scenes": [
+  {
+   "text": "En iyi parçayı istediler, dil getirdi. En kötüsünü istediler, yine dil getirdi.",
+   "prompt": "{LOKMAN} standing beside a low table with two identical covered copper dishes, {EFENDI} sitting on a cushion looking puzzled, sunny courtyard",
+   "yer": "Lokman Hekim"
+  },
+  {
+   "text": "Lokman'ın efendisi bir gün demiş ki: Bize yemek yap, en güzel parçayı pişir.",
+   "prompt": "{EFENDI} sitting on cushions in a courtyard speaking to {LOKMAN} who stands respectfully, a kitchen door and copper pots behind"
+  },
+  {
+   "text": "Lokman sofraya bir tabak dil getirmiş. Efendi şaşırmış ama bir şey dememiş.",
+   "prompt": "{EFENDI} raising an eyebrow at a covered copper dish on a low table, {LOKMAN} standing calmly nearby, courtyard"
+  },
+  {
+   "text": "Ertesi gün: Bugün de en kötü parçayı pişir! Lokman yine dil getirmiş.",
+   "prompt": "{LOKMAN} walking calmly across the courtyard with a covered copper tray, {EFENDI} waiting on cushions with crossed arms"
+  },
+  {
+   "text": "Efendi sinirlenmiş: Hem en iyisi hem en kötüsü nasıl aynı olur?",
+   "prompt": "{EFENDI} with an annoyed confused face, {LOKMAN} calm and smiling, courtyard with a fountain, medium shot"
+  },
+  {
+   "text": "Lokman demiş ki: Dil iyi olursa ondan iyisi yoktur. Kötü olursa ondan kötüsü.",
+   "prompt": "close-up of {LOKMAN} speaking gently with a wise smile, warm sunset light"
+  },
+  {
+   "text": "Hem en tatlı hem en acı şey, insanın dilidir.",
+   "prompt": "{EFENDI} and {LOKMAN} sitting together peacefully on cushions in the courtyard at sunset, a fountain softly flowing, both thoughtful"
+  }
+ ],
+ "hisse": "En tatlı da en acı da insanın dilidir.",
+ "son_alt": "Bunu sözünü sakınmayan birine gönder",
+ "caption": "Neden iki kez dil? 🍽️\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#lokmanhekim",
+  "#söz",
+  "#kıssadanhisse",
+  "#hikaye",
+  "#kıssadanhissetr"
+ ]
+}

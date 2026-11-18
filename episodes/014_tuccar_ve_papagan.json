@@ -1,0 +1,52 @@
+{
+ "id": "014",
+ "slug": "tuccar_ve_papagan",
+ "title": "Tüccar ve Papağan",
+ "seed": 14467,
+ "kanca_yazi": "Kafesten kurtulmak için önce ölmesi gerekti",
+ "characters": {
+  "PAPAGAN": "a bright green parrot with a red forehead, a curved yellow beak and long tail feathers, plain natural bird, no clothes",
+  "TUCCAR": "a cheerful plump merchant with a short brown beard, an orange turban and a long striped caftan"
+ },
+ "scenes": [
+  {
+   "text": "Kafesten kurtulmanın tek yolu ölü taklidi yapmaktı. Bunu ona, hiç görmediği bir akrabası öğretti.",
+   "prompt": "{PAPAGAN} lying still on the floor of an open ornate brass birdcage with closed eyes, {TUCCAR} kneeling beside the cage looking sad, cozy room with carpets",
+   "yer": "Mevlânâ · Mesnevi"
+  },
+  {
+   "text": "Bir tüccar Hindistan'a giderken, kafesteki papağanına sormuş: Sana ne getireyim?",
+   "prompt": "{TUCCAR} standing beside {PAPAGAN} in an ornate brass cage hanging in his shop, travel bags by the open door, a camel caravan visible outside"
+  },
+  {
+   "text": "Papağan demiş ki: Ormandaki akrabalarıma söyle, ben burada bir kafesteyim.",
+   "prompt": "close-up of {PAPAGAN} inside the brass cage leaning toward the bars with longing eyes, a window showing green faraway forests"
+  },
+  {
+   "text": "Tüccar haberi iletince, ağaçtaki papağanlardan biri titreyip yere düşmüş.",
+   "prompt": "in a lush tropical forest a wild green parrot falling from a high branch with closed eyes, cartoon motion lines, {TUCCAR} watching from below in shock"
+  },
+  {
+   "text": "Dönüşte bunu duyan kafesteki papağan da düşüp hareketsiz kalmış.",
+   "prompt": "{PAPAGAN} lying motionless on the floor of its brass cage with eyes closed, {TUCCAR} with his travel bag on his shoulder gasping in surprise"
+  },
+  {
+   "text": "Tüccar onu üzüntüyle dışarı çıkarınca papağan dala uçmuş: Beni sesim için kapattın, susunca kurtuldum.",
+   "prompt": "{PAPAGAN} flying out through an open window up to a high tree branch, {TUCCAR} looking up stunned, the empty brass cage open on the table"
+  },
+  {
+   "text": "Seni kafeste tutan, bazen en çok övülen yanındır.",
+   "prompt": "an empty open brass birdcage on a windowsill at sunset, a green parrot flying free far away in the sky, no people"
+  }
+ ],
+ "hisse": "Seni kafeste tutan, bazen en çok övülen yanındır.",
+ "son_alt": "Bunu kafeste hisseden birine gönder",
+ "caption": "Kafesten nasıl çıktı? 🦜\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#mevlana",
+  "#mesnevi",
+  "#kıssadanhisse",
+  "#papağan",
+  "#kıssadanhissetr"
+ ]
+}
