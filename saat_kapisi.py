@@ -70,8 +70,9 @@ def slot_dolu(slot, now=None):
     for p in kayitlar():
         if p.get("date") != bugun:
             continue
-        ps = p.get("slot")
-        if ps == slot or (not ps and sl and slot == sl[-1]):
+        # "slot" anahtarı hiç yoksa (slot sistemi öncesi eski kayıt) günün son vaktini karşılamış sayılır.
+        # "slot": "" (elle/zorla, vakit dışında yapılan paylaşım) hiçbir vakti doldurmaz (20 Kasım düzeltmesi).
+        if ("slot" not in p and sl and slot == sl[-1]) or (p.get("slot") and p["slot"] == slot):
             return True
     return False
 
