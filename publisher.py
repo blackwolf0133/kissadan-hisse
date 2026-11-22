@@ -147,6 +147,28 @@ def resolve_user_id(token, mode):
     return str(me.get("user_id") or me["id"])
 
 
+def _yayinlandi_mi(base, user_id, cid, token, deneme=6):
+    """media_publish hata verdiğinde: kapsayıcı PUBLISHED olduysa ilgili medyanın kimliğini döndürür, yoksa None."""
+    for _ in range(deneme):
+        time.sleep(20)
+        try:
+            st = _request("GET", f"{base}/{cid}", {"fields": "status_code", "access_token": token}).get("status_code")
+        except PublishError:
+            st = None
+        if st == "PUBLISHED":
+            try:
+                son = _request("GET", f"{base}/{user_id}/media",
+                               {"fields": "id,timestamp", "limit": 1, "access_token": token}).get("data", [])
+                if son:
+                    return son[0]["id"]
+            except PublishError:
+                pass
+            return "bilinmiyor-" + str(cid)
+        if st in ("ERROR", "EXPIRED"):
+            return None
+    return None
+
+
 def publish_reel(video_path=None, video_url=None, caption="", mode=None,
                  user_id=None, token=None, share_to_feed=True, trial=None, klasik=False):
     """Reel paylaşır, {"media_id", "permalink"} döndürür."""
@@ -216,8 +238,17 @@ def publish_reel(video_path=None, video_url=None, caption="", mode=None,
             raise PublishError(f"{e} | yükleme hatası: {upload_error}") from None
         raise
     # 4) Yayınla
-    pub = _request("POST", f"{base}/{user_id}/media_publish", {"creation_id": cid, "access_token": token})
-    media_id = pub["id"]
+    try:
+        pub = _request("POST", f"{base}/{user_id}/media_publish", {"creation_id": cid, "access_token": token})
+        media_id = pub["id"]
+    except PublishError as e:
+        # 22 Kasım: Meta media_publish'e 500 döndü ama video YAYINLANMIŞTI; kayıt yazılmadığı için sonraki vakitte
+        # aynı video ikinci kez paylaşıldı. Hata olursa kapsayıcının gerçekten yayınlanıp yayınlanmadığına bak.
+        media_id = _yayinlandi_mi(base, user_id, cid, token)
+        if not media_id:
+            raise
+        print(f"::warning::media_publish hata verdi ama video yayınlanmış ({media_id}); kayıt yazılacak. Hata: {str(e)[:150]}",
+              flush=True)
     link = None
     try:
         link = _request("GET", f"{base}/{media_id}", {"fields": "permalink", "access_token": token}).get("permalink")
