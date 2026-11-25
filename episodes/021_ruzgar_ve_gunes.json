@@ -1,0 +1,53 @@
+{
+ "id": "021",
+ "slug": "ruzgar_ve_gunes",
+ "title": "Rüzgâr ve Güneş",
+ "seed": 21649,
+ "kanca_yazi": "Fırtına yenemedi, bir gülümseme yendi",
+ "characters": {
+  "RUZGAR": "a big dark grey storm cloud with puffed cheeks and a stern frowning face, blowing wind",
+  "GUNES": "a round warm yellow sun with a gentle smiling face and soft golden rays",
+  "YOLCU": "a young traveler with a brown cap, a long red wool cloak and a small cloth bundle on his back"
+ },
+ "scenes": [
+  {
+   "text": "Rüzgâr bütün gücüyle esti. Ama bir yolcunun pelerinini bile çıkaramadı.",
+   "prompt": "{RUZGAR} blowing fiercely at {YOLCU} who wraps his red cloak tightly around himself on a hill road, trees bending in the wind, wide shot",
+   "yer": "Ezop Masalları"
+  },
+  {
+   "text": "Rüzgârla Güneş bir gün iddiaya tutuşmuş: Bakalım hangimiz daha güçlüyüz?",
+   "prompt": "{RUZGAR} and {GUNES} facing each other in the sky above green rolling hills, no people"
+  },
+  {
+   "text": "Aşağıda yalnız bir yolcu varmış. Onun pelerinini kim çıkarırsa, o kazanacakmış.",
+   "prompt": "{YOLCU} walking on a winding country road between green hills, {RUZGAR} and {GUNES} watching from the sky, wide shot"
+  },
+  {
+   "text": "Rüzgâr esmiş, uğuldamış, ağaçları eğmiş. Ama yolcu pelerinine daha da sıkı sarılmış.",
+   "prompt": "{YOLCU} hunched against strong wind clutching his red cloak around his body, leaves flying, {RUZGAR} blowing hard, wide shot"
+  },
+  {
+   "text": "Sıra Güneş'e gelmiş. Hiç zorlamamış, sadece gülümseyip ısıtmış.",
+   "prompt": "{GUNES} shining warmly in a clear blue sky, golden light over the hills, {YOLCU} walking relaxed on the road, wide shot"
+  },
+  {
+   "text": "Yolcu terlemiş, gülümseyerek pelerinini çıkarmış ve bir ağacın gölgesine oturmuş.",
+   "prompt": "{YOLCU} sitting happily in the shade of a big oak tree, the red cloak lying folded on the grass beside him, sunny day, wide shot"
+  },
+  {
+   "text": "Zorla açamadığın kapıyı, çoğu zaman sıcak bir söz açar.",
+   "prompt": "{GUNES} smiling over peaceful hills at sunset, a small calm grey cloud drifting beside it, no people"
+  }
+ ],
+ "hisse": "Zorla açamadığın kapıyı sıcak bir söz açar.",
+ "son_alt": "Bunu tartışmada sesini yükselten birine gönder",
+ "caption": "Kim daha güçlü? ☀️\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#ezop",
+  "#rüzgarvegüneş",
+  "#kıssadanhisse",
+  "#masal",
+  "#kıssadanhissetr"
+ ]
+}

@@ -1,0 +1,52 @@
+{
+ "id": "024",
+ "slug": "guvercinler_ve_ag",
+ "title": "Güvercinler ve Ağ",
+ "seed": 24961,
+ "kanca_yazi": "Ağa düştüler, ağla birlikte uçtular",
+ "characters": {
+  "GUVERCIN": "a grey pigeon with a shiny green and purple ring around its neck and bright orange eyes, plain natural bird, no clothes",
+  "FARE": "a small brown mouse with big round pink ears and a long thin tail, plain natural animal, no clothes"
+ },
+ "scenes": [
+  {
+   "text": "Bütün sürü aynı ağa yakalandı. Sonra ağı da sırtlanıp hep birlikte havalandılar.",
+   "prompt": "a flock of grey pigeons led by {GUVERCIN} flying together high in the sky carrying a large brown rope net with them, green fields below, no people",
+   "yer": "Kelile ve Dimne"
+  },
+  {
+   "text": "Yerde saçılmış taneleri gören güvercinler, hiç düşünmeden konmuşlar. Meğer orası bir ağmış.",
+   "prompt": "a flock of grey pigeons with {GUVERCIN} landing on grains scattered on the ground under a hidden brown rope net in a meadow, no people"
+  },
+  {
+   "text": "Herkes kendini kurtarmak için çırpınmış. Ağ daha da sıkışmış.",
+   "prompt": "a flock of grey pigeons flapping in panic under a brown rope net on the ground, feathers in the air, no people"
+  },
+  {
+   "text": "Halkalı güvercin seslenmiş: Herkes kendini düşünürse hepimiz kalırız. Aynı anda kanat çırpın!",
+   "prompt": "close-up of {GUVERCIN} under the net calling out bravely to the other pigeons, no people"
+  },
+  {
+   "text": "Hep birlikte havalanmışlar. Ağ da onlarla beraber uçmuş.",
+   "prompt": "a flock of grey pigeons rising together into the air lifting the brown rope net off the ground, {GUVERCIN} in front, no people"
+  },
+  {
+   "text": "Eski dostları farenin yuvasına konmuşlar. Fare ilmekleri tek tek kemirip hepsini kurtarmış.",
+   "prompt": "{FARE} gnawing a rope of the brown net at the entrance of a small burrow under a tree, {GUVERCIN} watching hopefully, no people"
+  },
+  {
+   "text": "Tek başına çırpınan yorulur; birlikte çırpınan uçar.",
+   "prompt": "a flock of free grey pigeons with {GUVERCIN} flying over golden fields at sunset, {FARE} waving its tail from a hill below, no people"
+  }
+ ],
+ "hisse": "Tek başına çırpınan yorulur; birlikte çırpınan uçar.",
+ "son_alt": "Bunu takım arkadaşlarına gönder",
+ "caption": "Ağdan nasıl kurtuldular? 🕊️\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#keliledimne",
+  "#güvercin",
+  "#kıssadanhisse",
+  "#masal",
+  "#kıssadanhissetr"
+ ]
+}

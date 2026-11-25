@@ -1,0 +1,54 @@
+{
+ "id": "022",
+ "slug": "sen_de_haklisin",
+ "title": "Sen de Haklısın",
+ "seed": 22751,
+ "kanca_yazi": "Herkese haklısın dedi, karısına bile",
+ "characters": {
+  "HOCA": "an old Turkish man with a round friendly face, a long white beard and a large white turban",
+  "KOMSU1": "a tall thin villager with a long nose, a red cap and a blue vest",
+  "KOMSU2": "a short chubby villager with a round black moustache, a brown cap and a yellow vest",
+  "HANIM": "a plump kind old woman with rosy cheeks, a white headscarf and a flowered dress"
+ },
+ "scenes": [
+  {
+   "text": "Hoca iki düşmana da haklısın dedi. Asıl şaşırtıcı olan, karısına verdiği cevaptı.",
+   "prompt": "{HOCA} sitting on cushions in a simple village room nodding wisely, {KOMSU1} and {KOMSU2} standing on either side glaring at each other",
+   "yer": "Nasreddin Hoca"
+  },
+  {
+   "text": "Hoca kadılık yaptığı günlerde, iki komşu bir anlaşmazlıkla kapısını çalmış.",
+   "prompt": "{KOMSU1} and {KOMSU2} arriving together at the wooden door of a village house, both looking annoyed, sunny village street"
+  },
+  {
+   "text": "Birincisi derdini uzun uzun anlatmış. Hoca dinlemiş: Haklısın, demiş.",
+   "prompt": "{KOMSU1} talking passionately, {HOCA} sitting on cushions listening and nodding, simple village room"
+  },
+  {
+   "text": "İkincisi bambaşka anlatmış. Hoca yine başını sallamış: Sen de haklısın.",
+   "prompt": "{KOMSU2} talking passionately, {HOCA} sitting on cushions nodding again, simple village room"
+  },
+  {
+   "text": "Karısı içeriden çıkmış: Efendi, ikisi birden nasıl haklı olur?",
+   "prompt": "{HANIM} standing in a doorway with a puzzled frown, {HOCA} on cushions turning toward her, simple village room"
+  },
+  {
+   "text": "Hoca bir an düşünmüş, sonra gülümsemiş: Hanım, sen de haklısın.",
+   "prompt": "close-up of {HOCA} smiling with a twinkle in his eyes, {HANIM} in the background bursting into laughter"
+  },
+  {
+   "text": "Tek tarafı dinleyen, herkesi haklı sanır. Hakikat, iki tarafı birlikte dinleyince ortaya çıkar.",
+   "prompt": "{HOCA} and {HANIM} sitting together on a wooden bench in front of their village house at sunset, both laughing"
+  }
+ ],
+ "hisse": "Tek tarafı dinleyen, herkesi haklı sanır.",
+ "son_alt": "Bunu herkese hak veren arkadaşına gönder",
+ "caption": "Hepsi haklı olur mu? ⚖️\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#nasreddinhoca",
+  "#sendehaklısın",
+  "#kıssadanhisse",
+  "#fıkra",
+  "#kıssadanhissetr"
+ ]
+}

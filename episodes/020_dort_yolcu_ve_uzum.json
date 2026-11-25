@@ -1,0 +1,51 @@
+{
+ "id": "020",
+ "slug": "dort_yolcu_ve_uzum",
+ "title": "Dört Yolcu ve Üzüm",
+ "seed": 20533,
+ "kanca_yazi": "Dördü de aynı şeyi istiyormuş",
+ "characters": {
+  "BILGE": "a calm wise old traveler with a white beard, a long blue robe, a light blue head wrap and a wooden walking staff"
+ },
+ "scenes": [
+  {
+   "text": "Dört yol arkadaşı tek bir sikke için birbirine girdi. Oysa dördü de aynı şeyi istiyordu.",
+   "prompt": "four travelers in different colorful regional clothes standing in a circle and arguing loudly around a single shining coin on a woven rug, caravanserai courtyard",
+   "yer": "Mevlânâ · Mesnevi"
+  },
+  {
+   "text": "Biri Türk, biri Arap, biri Acem, biri Rum'muş. Bir hayırsever onlara bir sikke vermiş.",
+   "prompt": "four travelers in different colorful regional clothes sitting in a circle on a woven rug in a caravanserai courtyard, a single gold coin in the middle"
+  },
+  {
+   "text": "Acem: Engür alalım, demiş. Arap: Hayır, ineb! Türk: Ne engürü, üzüm alacağız!",
+   "prompt": "three travelers in different colorful regional clothes talking over each other with frowning faces, caravanserai courtyard, medium shot"
+  },
+  {
+   "text": "Rum da bağırmış: İstafil olsun! Tartışma büyüdükçe büyümüş.",
+   "prompt": "four travelers in different colorful regional clothes standing face to face shouting with red angry faces, a cloud of dust, caravanserai courtyard"
+  },
+  {
+   "text": "Dört dili de bilen bir yolcu sikkeyi alıp çarşıya gitmiş.",
+   "prompt": "{BILGE} walking calmly into a colorful old bazaar full of fruit stalls"
+  },
+  {
+   "text": "Önlerine bir sepet üzüm koymuş. Dördü birden bakakalmış: Benim istediğim de buydu!",
+   "prompt": "close-up of a basket full of purple and green grapes on a woven rug, in the background the surprised happy faces of four travelers and {BILGE} smiling"
+  },
+  {
+   "text": "Çoğu kavga, aynı şeyi farklı kelimelerle istemekten çıkar.",
+   "prompt": "four travelers in colorful clothes and {BILGE} sitting together on a rug sharing a basket of grapes at sunset, caravanserai courtyard"
+  }
+ ],
+ "hisse": "Çoğu kavga, aynı şeyi farklı kelimelerle istemekten çıkar.",
+ "son_alt": "Bunu en çok tartıştığın kişiye gönder",
+ "caption": "Kavga neyin üstüne? 🍇\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#mevlana",
+  "#mesnevi",
+  "#kıssadanhisse",
+  "#hikaye",
+  "#kıssadanhissetr"
+ ]
+}

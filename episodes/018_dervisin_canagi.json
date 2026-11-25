@@ -1,0 +1,52 @@
+{
+ "id": "018",
+ "slug": "dervisin_canagi",
+ "title": "Dervişin Çanağı",
+ "seed": 18213,
+ "kanca_yazi": "Hazine bitti, çanak yine dolmadı",
+ "characters": {
+  "PADISAH": "a stout middle-aged sultan with a curled black moustache, a tall white turban with a red jewel and a purple kaftan with gold trim",
+  "DERVIS": "a thin old dervish with a long grey beard, a tall brown felt cone hat and a patched brown cloak, a small wooden bowl hanging from a cord at his waist"
+ },
+ "scenes": [
+  {
+   "text": "Padişah bütün hazinesini o küçük çanağa döktürdü. Ama çanak bir türlü dolmadı.",
+   "prompt": "{PADISAH} staring in shock at a small wooden bowl on the marble floor of a grand palace hall, a big tilted wooden chest beside it spilling gold coins into the bowl, {DERVIS} standing calmly nearby",
+   "yer": "Padişah ile Derviş"
+  },
+  {
+   "text": "Bir gün saraya yoksul bir derviş gelmiş. Padişah gururla demiş: Dile benden ne dilersen.",
+   "prompt": "{DERVIS} standing humbly before {PADISAH} who sits proudly on a golden throne, wide palace hall with tall arches and carpets"
+  },
+  {
+   "text": "Derviş beline asılı küçük çanağı göstermiş: Şunu doldur, bana yeter.",
+   "prompt": "close-up of a small plain wooden bowl placed on a shiny marble floor, in the background {PADISAH} leaning forward from his throne with a confident smile"
+  },
+  {
+   "text": "Altınlar dökülmüş. Ama her altın, çanağa düşer düşmez kaybolmuş.",
+   "prompt": "close-up of gold coins falling into a small wooden bowl and vanishing with a soft glow, the bowl still empty, marble palace floor"
+  },
+  {
+   "text": "Sandıklar boşalmış, hazine bitmiş. Çanak hâlâ bomboş.",
+   "prompt": "{PADISAH} sitting exhausted on the floor of a treasury room full of empty open wooden chests, the small wooden bowl in front of him"
+  },
+  {
+   "text": "Padişah sormuş: Bu nasıl çanak? Derviş gülümsemiş: İnsan gönlünden yapıldı, hiç doymaz.",
+   "prompt": "{DERVIS} smiling gently, {PADISAH} sitting on the floor looking amazed, the small bowl between them, warm golden light through palace windows"
+  },
+  {
+   "text": "Gönlünü doyurmayı bilmeyen, dünyayı verseler de doymaz.",
+   "prompt": "{DERVIS} walking away along a dusty road at sunset, a grand palace with domes small in the distance"
+  }
+ ],
+ "hisse": "Gönül doymazsa, dünyayı verseler de yetmez.",
+ "son_alt": "Bunu hep daha fazlasını isteyen birine gönder",
+ "caption": "Çanak neden dolmadı? 🥣\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#padişahvederviş",
+  "#hırs",
+  "#kıssadanhisse",
+  "#hikaye",
+  "#kıssadanhissetr"
+ ]
+}

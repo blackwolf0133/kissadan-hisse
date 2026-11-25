@@ -1,0 +1,52 @@
+{
+ "id": "019",
+ "slug": "maymun_ve_kaplumbaga",
+ "title": "Maymun ve Kaplumbağa",
+ "seed": 19427,
+ "kanca_yazi": "Kalbini ağaçta unuttuğunu söyledi",
+ "characters": {
+  "MAYMUN": "a small brown monkey with a light tan face, big round eyes and a long curly tail, plain natural animal, no clothes",
+  "KAPLUMBAGA": "a large green turtle with a dark brown patterned shell and a gentle round face, plain natural animal, no clothes"
+ },
+ "scenes": [
+  {
+   "text": "Maymun nehrin ortasında anladı: En iyi dostu onu bir tuzağa götürüyordu.",
+   "prompt": "{MAYMUN} sitting on the shell of {KAPLUMBAGA} swimming in the middle of a wide river, the monkey with wide worried eyes, jungle on both banks, no people",
+   "yer": "Kelile ve Dimne"
+  },
+  {
+   "text": "Kaplumbağa ile maymun, nehir kıyısındaki bir incir ağacının altında dost olmuşlar.",
+   "prompt": "{MAYMUN} sitting on a branch of a big fig tree over a river, {KAPLUMBAGA} resting on a rock below, both smiling at each other, no people"
+  },
+  {
+   "text": "Bir gün kaplumbağa demiş: Gel, seni evime götüreyim. Maymun sevinçle sırtına atlamış.",
+   "prompt": "{MAYMUN} jumping happily onto the shell of {KAPLUMBAGA} at the edge of the river, sunny morning, no people"
+  },
+  {
+   "text": "Yolda kaplumbağa ağzından kaçırmış: Eşim hasta. Onu ancak bir maymun kalbi iyileştirirmiş.",
+   "prompt": "{KAPLUMBAGA} swimming with a guilty face, {MAYMUN} on its shell with a shocked face, middle of the river, no people"
+  },
+  {
+   "text": "Maymun hiç telaş etmemiş: Keşke önceden söyleseydin. Kalbimi ağaçta bıraktım!",
+   "prompt": "{MAYMUN} on the turtle shell smiling calmly and looking back toward a fig tree on the distant riverbank, {KAPLUMBAGA} turning its head, no people"
+  },
+  {
+   "text": "Kaplumbağa geri dönmüş. Maymun ağaca sıçramış: Asıl kalbini kaybeden sensin, dostum.",
+   "prompt": "{MAYMUN} safe high up in the fig tree, {KAPLUMBAGA} below in the water looking ashamed, no people"
+  },
+  {
+   "text": "Tehlike anında telaş değil, soğukkanlı bir akıl kurtarır.",
+   "prompt": "{MAYMUN} sitting peacefully on a high branch of the fig tree at sunset, the river glowing below, no people"
+  }
+ ],
+ "hisse": "Tehlike anında telaş değil, soğukkanlı akıl kurtarır.",
+ "son_alt": "Bunu krizde bile sakin kalan arkadaşına gönder",
+ "caption": "Kalp nerede kaldı? 🐒\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#keliledimne",
+  "#maymun",
+  "#kıssadanhisse",
+  "#masal",
+  "#kıssadanhissetr"
+ ]
+}

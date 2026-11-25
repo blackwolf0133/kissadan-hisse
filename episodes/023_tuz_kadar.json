@@ -1,0 +1,52 @@
+{
+ "id": "023",
+ "slug": "tuz_kadar",
+ "title": "Tuz Kadar",
+ "seed": 23857,
+ "kanca_yazi": "Tuz kadar sevdi, saraydan gönderildi",
+ "characters": {
+  "PADISAH": "an old king with a short white beard, a golden crown over a white turban and a red kaftan",
+  "KIZ": "a young princess with long dark braids, a simple green dress and a small gold headband"
+ },
+ "scenes": [
+  {
+   "text": "Padişah en sevdiği kızını tek bir cümle yüzünden saraydan gönderdi: Seni tuz kadar seviyorum.",
+   "prompt": "{PADISAH} on his throne turning his face away angrily, {KIZ} standing sadly at the palace door with a small bundle, grand hall",
+   "yer": "Anadolu Masalı"
+  },
+  {
+   "text": "Padişah üç kızına sormuş: Beni ne kadar seviyorsunuz? Büyükler: Bal kadar, şeker kadar.",
+   "prompt": "{PADISAH} on his throne smiling at two older princesses in fancy pink and blue dresses bowing before him, {KIZ} standing quietly behind them, grand hall"
+  },
+  {
+   "text": "Küçük kız demiş ki: Ben seni tuz kadar severim. Padişah buna çok kırılmış.",
+   "prompt": "{KIZ} speaking softly with an honest face, {PADISAH} frowning deeply on his throne, grand hall, medium shot"
+  },
+  {
+   "text": "Yıllar sonra kız, kılık değiştirip babasını bir ziyafete çağırmış. Tüm yemekleri tuzsuz pişirtmiş.",
+   "prompt": "a long low feast table full of colorful dishes in a beautiful mansion, {PADISAH} arriving with an older tired face, {KIZ} in a veil welcoming him"
+  },
+  {
+   "text": "Padişah her tabaktan tatmış, yüzünü buruşturmuş. Hiçbir yemeğin tadı yokmuş.",
+   "prompt": "{PADISAH} sitting at the feast table making a sour disappointed face, many untouched dishes in front of him"
+  },
+  {
+   "text": "O an anlamış: Tuz olmadan hiçbir şeyin tadı yok. Kızını tanıyınca gözleri dolmuş.",
+   "prompt": "{KIZ} lifting her veil with a gentle smile, {PADISAH} standing up with teary eyes, warm candle light"
+  },
+  {
+   "text": "Gerçek sevgi tuz gibidir; varken fark edilmez, yokken her şey tatsızlaşır.",
+   "prompt": "{PADISAH} and {KIZ} sitting side by side at the feast table smiling, a small bowl of white salt between them, warm light"
+  }
+ ],
+ "hisse": "Gerçek sevgi tuz gibidir; yokluğunda anlaşılır.",
+ "son_alt": "Bunu hayatının tuzu olan birine gönder",
+ "caption": "Tuz kadar sevmek az mı? 🧂\n\nHer akşam yeni bir kıssa için takip et 📜",
+ "hashtags": [
+  "#anadolumasalları",
+  "#tuzkadar",
+  "#kıssadanhisse",
+  "#masal",
+  "#kıssadanhissetr"
+ ]
+}
